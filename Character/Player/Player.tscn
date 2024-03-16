@@ -1,0 +1,167 @@
+[gd_scene load_steps=18 format=3 uid="uid://ixorcbktqxj5"]
+
+[ext_resource type="Script" path="res://Character/Player/Player.gd" id="1_7jlo0"]
+[ext_resource type="Texture2D" uid="uid://3qmss8adqcvb" path="res://Asset/Character/mario_sheet.png" id="1_k6hj8"]
+[ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerStateMechine.gd" id="3_c48ae"]
+[ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerIdle.gd" id="4_3tw8o"]
+[ext_resource type="PackedScene" uid="uid://dvrfe0h2j7dgv" path="res://Component/Debug/StateWatcher/StateWatcher.tscn" id="4_jbsxx"]
+[ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerWalk.gd" id="5_ryhnv"]
+[ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerJump.gd" id="6_l87rl"]
+[ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerRun.gd" id="8_fvi6b"]
+[ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerStop.gd" id="9_0yr47"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6548"]
+size = Vector2(12, 16)
+
+[sub_resource type="Animation" id="Animation_esyu0"]
+resource_name = "idle"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(211, 0, 13, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_m3kqg"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(241, 0, 14, 15), Rect2(272, 0, 12, 16), Rect2(300, 0, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_qt2ta"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(211, 0, 13, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_mufg4"]
+resource_name = "run"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(241, 0, 14, 15), Rect2(272, 0, 12, 16), Rect2(300, 0, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_s2l31"]
+resource_name = "jump"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(359, 0, 17, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_782ov"]
+resource_name = "stop"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(331, 0, 14, 16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lhdr0"]
+_data = {
+"RESET": SubResource("Animation_qt2ta"),
+"idle": SubResource("Animation_esyu0"),
+"jump": SubResource("Animation_s2l31"),
+"run": SubResource("Animation_mufg4"),
+"stop": SubResource("Animation_782ov"),
+"walk": SubResource("Animation_m3kqg")
+}
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_7jlo0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_k6hj8")
+region_enabled = true
+region_rect = Rect2(211, 0, 13, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_r6548")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lhdr0")
+}
+
+[node name="StateWatcher" parent="." node_paths=PackedStringArray("state_mechine_node", "sprite_node") instance=ExtResource("4_jbsxx")]
+state_mechine_node = NodePath("../PlayerStateMechine")
+sprite_node = NodePath("..")
+
+[node name="PlayerStateMechine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "animation_player", "sprite_node")]
+script = ExtResource("3_c48ae")
+initial_state = NodePath("PlayerIdle")
+animation_player = NodePath("../AnimationPlayer")
+sprite_node = NodePath("..")
+
+[node name="PlayerWalk" type="Node" parent="PlayerStateMechine"]
+script = ExtResource("5_ryhnv")
+
+[node name="PlayerIdle" type="Node" parent="PlayerStateMechine"]
+script = ExtResource("4_3tw8o")
+
+[node name="PlayerJump" type="Node" parent="PlayerStateMechine"]
+script = ExtResource("6_l87rl")
+
+[node name="PlayerRun" type="Node" parent="PlayerStateMechine"]
+script = ExtResource("8_fvi6b")
+
+[node name="PlayerStop" type="Node" parent="PlayerStateMechine"]
+script = ExtResource("9_0yr47")

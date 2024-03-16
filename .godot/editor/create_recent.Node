@@ -1,0 +1,14 @@
+PlayerStop
+PlayerRun
+Node2D
+Label
+PlayerJump
+Node
+State
+StateMechine
+Camera2D
+AnimationPlayer
+CollisionShape2D
+Sprite2D
+CharacterBody2D
+TileMap
