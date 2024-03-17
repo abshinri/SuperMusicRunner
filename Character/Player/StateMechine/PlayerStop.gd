@@ -3,7 +3,7 @@ class_name PlayerStop extends State
 func enter() -> void:
 	animation_player.play("stop")
 	
-func update(_delta) -> void:
+func physics_update(_delta) -> void:
 	if sprite_node.direction:
 			sprite_node.velocity.x = move_toward(sprite_node.velocity.x, sprite_node.direction * sprite_node.MAX_SPEED, sprite_node.ACCELERATION * _delta)
 	else:

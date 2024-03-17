@@ -8,6 +8,6 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	$StateLabel.text = state_mechine_node.current_state.name if state_mechine_node.current_state else ""
+func _process(_delta: float) -> void:
+	$StateLabel.text = str(state_mechine_node.current_state.name) if state_mechine_node.current_state else ""
 	pass

@@ -11,41 +11,7 @@
 [ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerStop.gd" id="9_0yr47"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r6548"]
-size = Vector2(12, 16)
-
-[sub_resource type="Animation" id="Animation_esyu0"]
-resource_name = "idle"
-length = 0.1
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(211, 0, 13, 16)]
-}
-
-[sub_resource type="Animation" id="Animation_m3kqg"]
-resource_name = "walk"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Rect2(241, 0, 14, 15), Rect2(272, 0, 12, 16), Rect2(300, 0, 16, 16)]
-}
+size = Vector2(12, 15)
 
 [sub_resource type="Animation" id="Animation_qt2ta"]
 length = 0.001
@@ -62,9 +28,9 @@ tracks/0/keys = {
 "values": [Rect2(211, 0, 13, 16)]
 }
 
-[sub_resource type="Animation" id="Animation_mufg4"]
-resource_name = "run"
-length = 0.3
+[sub_resource type="Animation" id="Animation_esyu0"]
+resource_name = "idle"
+length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -73,10 +39,10 @@ tracks/0/path = NodePath("Sprite2D:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Rect2(241, 0, 14, 15), Rect2(272, 0, 12, 16), Rect2(300, 0, 16, 16)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(211, 0, 13, 16)]
 }
 
 [sub_resource type="Animation" id="Animation_s2l31"]
@@ -96,6 +62,23 @@ tracks/0/keys = {
 "values": [Rect2(359, 0, 17, 16)]
 }
 
+[sub_resource type="Animation" id="Animation_mufg4"]
+resource_name = "run"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(241, 0, 14, 15), Rect2(272, 0, 12, 16), Rect2(300, 0, 16, 16)]
+}
+
 [sub_resource type="Animation" id="Animation_782ov"]
 resource_name = "stop"
 length = 0.1
@@ -110,7 +93,24 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Rect2(331, 0, 14, 16)]
+"values": [Rect2(60, 0, 14, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_m3kqg"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(241, 0, 14, 15), Rect2(272, 0, 12, 16), Rect2(300, 0, 16, 16)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lhdr0"]
@@ -124,6 +124,8 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_7jlo0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -133,7 +135,7 @@ region_enabled = true
 region_rect = Rect2(211, 0, 13, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_r6548")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -165,3 +167,6 @@ script = ExtResource("8_fvi6b")
 
 [node name="PlayerStop" type="Node" parent="PlayerStateMechine"]
 script = ExtResource("9_0yr47")
+
+[node name="JumpBuffDetector" type="RayCast2D" parent="."]
+target_position = Vector2(0, 32)

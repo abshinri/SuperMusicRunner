@@ -3,7 +3,10 @@ class_name PlayerRun extends State
 func enter() -> void:
 	animation_player.play("run")
 	
-func update(_delta) -> void:
+func physics_update(_delta) -> void:
+	if not Input.is_action_pressed("move_action"):
+		transitioned.emit(self, 'PlayerWalk')
+		
 	## 加速度和移动方向不同时, 同时速度达到触发刹车的阈值
 	if sprite_node.direction * sprite_node.velocity.x < 0 and abs(sprite_node.velocity.x) < sprite_node.BRAKE_THRESHOLD * sprite_node.MAX_SPEED:
 		transitioned.emit(self, 'PlayerStop')

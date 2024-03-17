@@ -35,8 +35,6 @@ func _on_child_transition(_state:State, _next_state_name:String) -> void:
 	# 从状态字典里找到要跳转的状态
 	var _next_state = states.get(_next_state_name.to_lower())
 	
-	print('_on_child_transition')
-	print(states)
 	if !_next_state:
 		return
 	# 执行状态退出
