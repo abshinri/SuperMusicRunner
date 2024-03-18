@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ixorcbktqxj5"]
+[gd_scene load_steps=19 format=3 uid="uid://ixorcbktqxj5"]
 
 [ext_resource type="Script" path="res://Character/Player/Player.gd" id="1_7jlo0"]
 [ext_resource type="Texture2D" uid="uid://3qmss8adqcvb" path="res://Asset/Character/mario_sheet.png" id="1_k6hj8"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerJump.gd" id="6_l87rl"]
 [ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerRun.gd" id="8_fvi6b"]
 [ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerStop.gd" id="9_0yr47"]
-[ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerDead.gd" id="10_q1lbe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r6548"]
 size = Vector2(12, 15)
@@ -47,7 +46,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-8, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(236, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 
@@ -177,7 +176,7 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lhdr0"]
 _data = {
 "RESET": SubResource("Animation_qt2ta"),
-"dead": SubResource("Animation_hbg65"),
+"die": SubResource("Animation_hbg65"),
 "idle": SubResource("Animation_esyu0"),
 "jump": SubResource("Animation_s2l31"),
 "run": SubResource("Animation_mufg4"),
@@ -191,7 +190,7 @@ collision_mask = 3
 script = ExtResource("1_7jlo0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, 236)
 texture = ExtResource("1_k6hj8")
 region_enabled = true
 region_rect = Rect2(211, 0, 13, 16)
@@ -230,9 +229,5 @@ script = ExtResource("8_fvi6b")
 [node name="PlayerStop" type="Node" parent="PlayerStateMechine"]
 script = ExtResource("9_0yr47")
 
-[node name="PlayerDead" type="Node" parent="PlayerStateMechine"]
-script = ExtResource("10_q1lbe")
-
 [node name="JumpBuffDetector" type="RayCast2D" parent="."]
 target_position = Vector2(0, 32)
-metadata/_edit_lock_ = true

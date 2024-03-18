@@ -4,6 +4,7 @@ func enter() -> void:
 	animation_player.play("run")
 	
 func physics_update(_delta) -> void:
+	super.physics_update(_delta)
 	if not Input.is_action_pressed("move_action"):
 		transitioned.emit(self, 'PlayerWalk')
 		

@@ -14,4 +14,7 @@ func update(_delta: float):
 	pass
 	
 func physics_update(_delta: float):
-	pass
+	if sprite_node.player_state == Enum.PlayerState.DEAD:
+		transitioned.emit(self,'PlayerDead')
+		print(self)
+	return

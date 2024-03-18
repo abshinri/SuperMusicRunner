@@ -28,7 +28,7 @@ func _physics_process(_delta: float) -> void:
 
 ## 开始执行状态转变
 func _on_child_transition(_state:State, _next_state_name:String) -> void:
-
+	print("Transitioning from ", _state.name, " to ", _next_state_name)
 	# 确保这次的转变是从 当前状态 到 下一个状态
 	if _state != current_state:
 		return

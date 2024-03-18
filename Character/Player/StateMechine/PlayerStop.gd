@@ -4,6 +4,7 @@ func enter() -> void:
 	animation_player.play("stop")
 	
 func physics_update(_delta) -> void:
+	super.physics_update(_delta)
 	if sprite_node.direction:
 			sprite_node.velocity.x = move_toward(sprite_node.velocity.x, sprite_node.direction * sprite_node.MAX_SPEED, sprite_node.ACCELERATION * _delta)
 	else:

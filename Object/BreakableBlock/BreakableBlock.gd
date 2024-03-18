@@ -1,4 +1,4 @@
-class_name BreakableBlock extends Movable
+class_name BreakableBlock extends MovableObject
 
 @export var type := 1
 
@@ -23,5 +23,6 @@ func bump(_state:String) -> void:
 	var bump_tween = create_tween()
 	bump_tween.tween_property(self, "position", position + Vector2(0, -4), .12)
 	bump_tween.chain().tween_property(self, "position", position, .12)
+	$Break.emitting = true
 	await bump_tween.finished
 	_bumping = false

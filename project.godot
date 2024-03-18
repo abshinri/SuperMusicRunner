@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Enum="*res://Global/Script/Enum.gd"
 SignalBank="*res://Global/Script/SignalBank.gd"
 
 [display]

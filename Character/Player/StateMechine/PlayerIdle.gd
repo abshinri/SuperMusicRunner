@@ -4,6 +4,7 @@ func enter() -> void:
 	animation_player.play("idle")
 	
 func physics_update(_delta) -> void:
+	super.physics_update(_delta)
 	if not sprite_node.is_on_floor():
 		transitioned.emit(self,'PlayerJump')
 	if sprite_node.direction:

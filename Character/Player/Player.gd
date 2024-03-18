@@ -23,7 +23,7 @@ var direction:float
 ## 重力
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var player_state = 'small'
+var player_state = Enum.PlayerState.SMALL
 
 @onready var jump_buff_detector := $JumpBuffDetector as RayCast2D
 

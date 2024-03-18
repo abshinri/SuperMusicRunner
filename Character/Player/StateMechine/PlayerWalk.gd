@@ -4,6 +4,7 @@ func enter():
 	animation_player.play("walk")
 	
 func physics_update(_delta: float) -> void:
+	super.physics_update(_delta)
 	if sprite_node.direction:
 		#如果移动的方向和加速度不一致，则加速减速
 		if sprite_node.velocity.x * sprite_node.direction < 0:

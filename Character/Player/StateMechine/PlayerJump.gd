@@ -17,6 +17,7 @@ func _handle_movement_collision(_collision: KinematicCollision2D):
 
 
 func physics_update(_delta: float) -> void:
+	super.physics_update(_delta)
 	var collision = sprite_node.get_last_slide_collision()
 	if collision != null:
 		_handle_movement_collision(collision)
