@@ -1,0 +1,9 @@
+res://Character/Player/Player.tscn::ea24f8f6a7542fcfbd66d7fea61ff0e4::1710792089::res://.godot/exported/133200997/export-e3f3c13958299d5b5fecbaa27d1b1bdf-Player.scn
+res://Component/Debug/StateWatcher/StateWatcher.tscn::8fb7409f5d6831631cc0ae98f637e9fc::1710660921::res://.godot/exported/133200997/export-205fdb118f5ee07e75ca77603b579508-StateWatcher.scn
+res://Component/FileReader/FileReader.tscn::4007d0c2f9a8359dc757cd6603428a57::1710594890::res://.godot/exported/133200997/export-3892c9fb71a62b52042093ad2d96a0a7-FileReader.scn
+res://Component/MusicPlayer/MusicPlayer.tscn::80e90555258aab597d897b6677a5f8c1::1710792089::res://.godot/exported/133200997/export-c833fde680fd025fa1c30d2a31a9e803-MusicPlayer.scn
+res://Component/ObjectGenerator/ObjectGenerator.tscn::6293b5999b518e31f3fa5352a68479c0::1710792089::res://.godot/exported/133200997/export-bc27aefd0911352348f34cd788ee34f3-ObjectGenerator.scn
+res://Object/BreakableBlock/BreakableBlock.tscn::26892dd66e95be9191b0bc90851c4380::1710792089::res://.godot/exported/133200997/export-4df9e415192388fc1d808a158766a3c7-BreakableBlock.scn
+res://Stage/Game/Game.tscn::2232c1dd7764a3e714915e348974e748::1710792089::res://.godot/exported/133200997/export-2faab53d5cc3c09bc71313af90154b7f-Game.scn
+res://Stage/Main/Main.tscn::e1c8fc85b946d7de02a40f18e93e3f22::1710792089::res://.godot/exported/133200997/export-1e7bcb2ed9ad53ee624be590cc6fb87b-Main.scn
+res://default_bus_layout.tres::8a494a5bd66eac75de395257cfb88eb0::1710769838::res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res

@@ -1,6 +1,6 @@
 extends Node
 # FileReader
-signal file_reader_loaded(stream)
+signal file_reader_loaded()
 
 # MusicPlayer
 signal mucis_player_loaded()

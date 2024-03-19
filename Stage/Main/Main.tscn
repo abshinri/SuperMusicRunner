@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0cflngcn6uur"]
+[gd_scene load_steps=5 format=3 uid="uid://c0cflngcn6uur"]
 
 [ext_resource type="PackedScene" uid="uid://x8g6e68mpoln" path="res://Component/FileReader/FileReader.tscn" id="1_mgl8a"]
 [ext_resource type="PackedScene" uid="uid://pva8a35gqq6u" path="res://Component/MusicPlayer/MusicPlayer.tscn" id="2_3v2ig"]
+[ext_resource type="PackedScene" uid="uid://1s657cgcw082" path="res://Component/ObjectGenerator/ObjectGenerator.tscn" id="3_gx3lh"]
 [ext_resource type="PackedScene" uid="uid://c4clxc7oglyeu" path="res://Stage/Game/Game.tscn" id="3_x8gc7"]
 
 [node name="Main" type="Control"]
@@ -41,5 +42,9 @@ offset_bottom = 324.0
 
 [node name="MusicPlayer" parent="Hidden" instance=ExtResource("2_3v2ig")]
 layout_mode = 1
+
+[node name="ObjectGenerator" parent="Hidden" node_paths=PackedStringArray("game", "music_player") instance=ExtResource("3_gx3lh")]
+game = NodePath("../../Game")
+music_player = NodePath("../MusicPlayer")
 
 [node name="Game" parent="." instance=ExtResource("3_x8gc7")]

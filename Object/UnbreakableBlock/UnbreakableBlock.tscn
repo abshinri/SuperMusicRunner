@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://jabdayjqc1ic"]
+
+[ext_resource type="Script" path="res://Object/UnbreakableBlock/UnbreakableBlock.gd" id="1_fnk0j"]
+[ext_resource type="Texture2D" uid="uid://b2td7ii2ya71w" path="res://Asset/Object/overworld_ground_and_stone_tileset.png" id="1_tgk3k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwfup"]
+size = Vector2(16, 16)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_isi8j"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(1, -20, 0)
+spread = 28.82
+initial_velocity_min = 44.94
+initial_velocity_max = 67.41
+gravity = Vector3(0, 240, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gwdr"]
+atlas = ExtResource("1_tgk3k")
+region = Rect2(34, 0, 8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wore0"]
+size = Vector2(17, 16)
+
+[node name="UnbreakableBlock" type="AnimatableBody2D"]
+script = ExtResource("1_fnk0j")
+
+[node name="Graphic" type="Node2D" parent="."]
+
+[node name="Type1" type="Sprite2D" parent="Graphic"]
+texture = ExtResource("1_tgk3k")
+region_enabled = true
+region_rect = Rect2(0, 17, 16, 16)
+
+[node name="Type2" type="Sprite2D" parent="Graphic"]
+texture = ExtResource("1_tgk3k")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cwfup")
+
+[node name="Break" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_isi8j")
+texture = SubResource("AtlasTexture_0gwdr")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 24
+
+[node name="CrashZone" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrashZone"]
+position = Vector2(-16.5, 0)
+shape = SubResource("RectangleShape2D_wore0")
+debug_color = Color(0.623529, 0.533333, 0, 0.419608)

@@ -10,7 +10,7 @@ var _jump_buffed: bool = false
 func _handle_movement_collision(_collision: KinematicCollision2D):
 	var collider = _collision.get_collider()
 	# 碰到砖的情况
-	if _collision.get_collider() is BreakableBlock:
+	if _collision.get_collider() is StaticObject:
 		var collision_angle = rad_to_deg(_collision.get_angle())
 		if roundf(collision_angle) == 180:
 			collider.bump(sprite_node.player_state)

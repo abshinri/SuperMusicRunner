@@ -1,21 +1,7 @@
-class_name MovableObject extends AnimatableBody2D
-
-signal move_state_changed(_move: Enum.MovableObjectState, _speed: float)
-@export var _move_state: Enum.MovableObjectState = Enum.MovableObjectState.IDLE
-@export var _move_speed := 1.0
-
-func _ready() -> void:
-	move_state_changed.connect(Callable(self, '_on_move_state_changed'))
-	_on_move_state_changed(Enum.MovableObjectState.MOVE, 1.0)
+class_name StaticObject extends AnimatableBody2D
 
 func _physics_process(_delta: float) -> void:
-	if _move_state == Enum.MovableObjectState.MOVE:
-		position.x -= _move_speed
 	_on_CrashZone_body_entered()
-
-func _on_move_state_changed(_move: Enum.MovableObjectState, _speed: float) -> void:
-	_move_speed = _speed
-	_move_state = _move
 
 ## 检查CrashZone是否同时碰到Crash边界和玩家
 func _on_CrashZone_body_entered() -> void:
