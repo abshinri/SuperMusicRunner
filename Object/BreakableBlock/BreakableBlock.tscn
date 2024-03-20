@@ -24,6 +24,7 @@ region = Rect2(34, 0, 8, 8)
 size = Vector2(17, 16)
 
 [node name="BreakableBlock" type="AnimatableBody2D"]
+collision_layer = 16
 script = ExtResource("1_vjyj6")
 
 [node name="Graphic" type="Node2D" parent="."]

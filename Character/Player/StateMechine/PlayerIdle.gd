@@ -1,7 +1,8 @@
 class_name PlayerIdle extends State
 
 func enter() -> void:
-	animation_player.play("idle")
+	super.enter()
+	animation_player.play(sprite_node.player_state + "Idle")
 	
 func physics_update(_delta) -> void:
 	super.physics_update(_delta)

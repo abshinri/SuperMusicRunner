@@ -11,20 +11,18 @@ enum ObjectType {
 @onready var gravity: int = ProjectSettings.get("physics/2d/default_gravity")
 
 
-var _state
+var state
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if object_type == ObjectType.ITEM:
-		_state = Enum.ItemState.WALKING
+		state = Enum.ItemState.WALKING
 	else:
-		_state = Enum.EnemyState.WALKING
+		state = Enum.EnemyState.WALKING
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_update(_delta: float) -> void:
-	
-	if (_state == Enum.ItemState.WALKING or _state == Enum.EnemyState.WALKING) and velocity.is_zero_approx():
-		print("velocity is zero")
+	if (state == Enum.ItemState.WALKING or state == Enum.EnemyState.WALKING) and velocity.is_zero_approx():
 		velocity.x = move_speed
 	velocity.y += gravity * _delta
 

@@ -1,7 +1,8 @@
 class_name PlayerWalk extends State
 
 func enter():
-	animation_player.play("walk")
+	super.enter()
+	animation_player.play(sprite_node.player_state + "Walk")
 	
 func physics_update(_delta: float) -> void:
 	super.physics_update(_delta)

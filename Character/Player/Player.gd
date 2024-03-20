@@ -36,3 +36,7 @@ func _physics_process(delta):
 		$Sprite2D.flip_h = false
 		
 	move_and_slide()
+
+func grow_up() ->void:
+	player_state = Enum.PlayerState.GROWING
+	pass

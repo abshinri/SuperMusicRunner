@@ -1,4 +1,4 @@
 extends Node
-enum PlayerState {SMALL, BIG, FIRE, DEAD}
+const PlayerState = {SMALL="Small", BIG="Big", FIRE="Fire", DEAD="Dead", GROWING="Growing",}
 enum EnemyState {WALKING,DEAD}
-enum ItemState {WALKING}
+enum ItemState {WALKING, GENERATING }

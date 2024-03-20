@@ -1,7 +1,8 @@
 class_name PlayerDead extends State
 
 func enter() -> void:
-	animation_player.play("dead")
+	super.enter()
+	animation_player.play("Dead")
 	sprite_node.set_collision_mask_value(2, false)
 	sprite_node.set_collision_layer_value(2, false)
 	sprite_node.set_physics_process(false)

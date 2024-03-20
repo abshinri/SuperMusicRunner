@@ -21,19 +21,19 @@ func _physics_process(_delta: float) -> void:
 	pass
 
 var _bumping := false
-func bump(_state:Enum.PlayerState) -> void:
+func bump(_state:String) -> void:
 	if _bumping: 
 		return
 	_bumping = true
 	$Graphic.visible = false
+	$CollisionShape2D.disabled = true
 	
 	var bump_tween = create_tween()
 	bump_tween.tween_property(self, "position", position + Vector2(0, -4), .12)
 	bump_tween.chain().tween_property(self, "position", position, .12)
 	await bump_tween.finished
 
-
 	$Break.emitting = true
-	await bump_tween.finished
-	queue_free()	
+	await $Break.finished
 	_bumping = false
+	queue_free()	

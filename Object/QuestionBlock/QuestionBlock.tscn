@@ -63,6 +63,7 @@ _data = {
 }
 
 [node name="QuestionBlock" type="AnimatableBody2D"]
+collision_layer = 16
 script = ExtResource("1_0yeks")
 
 [node name="Graphic" type="Node2D" parent="."]

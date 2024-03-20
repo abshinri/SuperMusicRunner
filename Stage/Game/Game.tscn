@@ -24,8 +24,8 @@ metadata/_edit_lock_ = true
 position = Vector2(46, 138)
 
 [node name="BlockPlayerZone" type="StaticBody2D" parent="."]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 16
+collision_mask = 0
 
 [node name="CollisionShape2DLeft" type="CollisionShape2D" parent="BlockPlayerZone"]
 position = Vector2(-8, 112)
@@ -36,6 +36,8 @@ position = Vector2(392, 112)
 shape = SubResource("RectangleShape2D_ovuos")
 
 [node name="CleanObjectZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("5_nwkw8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CleanObjectZone"]

@@ -21,7 +21,7 @@ func _physics_process(_delta: float) -> void:
 	pass
 
 var _bumping := false
-func bump(_state: Enum.PlayerState) -> void:
+func bump(_state: String) -> void:
 	if _bumping:
 		return
 	_bumping = true

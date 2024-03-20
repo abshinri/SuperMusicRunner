@@ -1,7 +1,8 @@
 class_name PlayerStop extends State
 
 func enter() -> void:
-	animation_player.play("stop")
+	super.enter()
+	animation_player.play(sprite_node.player_state + "Stop")
 	
 func physics_update(_delta) -> void:
 	super.physics_update(_delta)

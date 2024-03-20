@@ -6,5 +6,6 @@ func _physics_process(_delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
+		body.grow_up()
 		queue_free()
 	pass # Replace with function body.

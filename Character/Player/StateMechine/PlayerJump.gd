@@ -1,7 +1,8 @@
 class_name PlayerJump extends State
 
 func enter() -> void:
-	animation_player.play("jump")
+	super.enter()
+	animation_player.play(sprite_node.player_state + "Jump")
 
 # 跳跃缓存
 var _jump_buffed: bool = false

@@ -24,6 +24,7 @@ region = Rect2(34, 0, 8, 8)
 size = Vector2(17, 16)
 
 [node name="UnbreakableBlock" type="AnimatableBody2D"]
+collision_layer = 16
 script = ExtResource("1_fnk0j")
 
 [node name="Graphic" type="Node2D" parent="."]
@@ -52,7 +53,8 @@ explosiveness = 1.0
 fixed_fps = 24
 
 [node name="CrashZone" type="Area2D" parent="."]
-collision_mask = 2
+collision_layer = 0
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CrashZone"]
 position = Vector2(-16.5, 0)
