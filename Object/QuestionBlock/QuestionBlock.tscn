@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://fxqi433ttxbt"]
+[gd_scene load_steps=11 format=3 uid="uid://fxqi433ttxbt"]
 
 [ext_resource type="Script" path="res://Object/QuestionBlock/QuestionBlock.gd" id="1_0yeks"]
 [ext_resource type="Texture2D" uid="uid://b2td7ii2ya71w" path="res://Asset/Object/overworld_ground_and_stone_tileset.png" id="1_tgk3k"]
@@ -41,25 +41,9 @@ tracks/0/keys = {
 "values": [Rect2(0, 0, 16, 16), Rect2(17, 0, 16, 16), Rect2(34, 0, 16, 16)]
 }
 
-[sub_resource type="Animation" id="Animation_jgsnt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Graphic/Type1:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(17, 0, 16, 16)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2k62v"]
 _data = {
-"Idle": SubResource("Animation_qnd6g"),
-"RESET": SubResource("Animation_jgsnt")
+"Idle": SubResource("Animation_qnd6g")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1vij"]
@@ -74,7 +58,7 @@ script = ExtResource("1_0yeks")
 [node name="Type1" type="Sprite2D" parent="Graphic"]
 texture = ExtResource("2_h0jsq")
 region_enabled = true
-region_rect = Rect2(17, 0, 16, 16)
+region_rect = Rect2(0, 0, 16, 16)
 
 [node name="Type2" type="Sprite2D" parent="Graphic"]
 visible = false

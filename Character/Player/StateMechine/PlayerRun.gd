@@ -6,6 +6,8 @@ func enter() -> void:
 	
 func physics_update(_delta) -> void:
 	super.physics_update(_delta)
+	if Input.is_action_pressed("move_down") and sprite_node.is_on_floor() and sprite_node.player_state == Enum.PlayerState.BIG:
+		transitioned.emit(self, 'PlayerSquat')
 	if not Input.is_action_pressed("move_action"):
 		transitioned.emit(self, 'PlayerWalk')
 		

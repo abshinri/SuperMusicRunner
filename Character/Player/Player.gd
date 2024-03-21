@@ -23,11 +23,20 @@ var direction:float
 ## 重力
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var player_state = Enum.PlayerState.SMALL
+var player_state := Enum.PlayerState.SMALL
+var player_is_squat := false
 
 @onready var jump_buff_detector := $JumpBuffDetector as RayCast2D
 
+
+func _ready() -> void:
+	var input_action = InputMap.get_actions()
+
 func _physics_process(delta):
+	if Input.is_action_just_pressed("move_down"):
+		player_is_squat = true
+	if Input.is_action_just_released("move_down"):
+		player_is_squat = false
 	direction = Input.get_axis("move_left", "move_right")
 	velocity.y += gravity * delta
 	if velocity.x < 0:
@@ -40,3 +49,5 @@ func _physics_process(delta):
 func grow_up() ->void:
 	player_state = Enum.PlayerState.GROWING
 	pass
+
+

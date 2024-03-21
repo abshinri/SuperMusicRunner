@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://jabdayjqc1ic" path="res://Object/UnbreakableBlock/UnbreakableBlock.tscn" id="2_o70bn"]
 [ext_resource type="PackedScene" uid="uid://fxqi433ttxbt" path="res://Object/QuestionBlock/QuestionBlock.tscn" id="3_pg6v3"]
 [ext_resource type="Texture2D" uid="uid://b2td7ii2ya71w" path="res://Asset/Object/overworld_ground_and_stone_tileset.png" id="4_8y3ii"]
-[ext_resource type="PackedScene" uid="uid://dcogeuu6a4qgp" path="res://Object/Shell/Shell.tscn" id="5_4xg0f"]
+[ext_resource type="PackedScene" uid="uid://dcgoeuu6a4qgp" path="res://Object/Koopa/Koopa.tscn" id="5_2ekpt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lvdlf"]
 resource_name = "overworld_ground_and_stone_tileset"
@@ -157,5 +157,5 @@ coin_number = 5
 [node name="UnbreakableBlock5" parent="." instance=ExtResource("2_o70bn")]
 position = Vector2(24, 184)
 
-[node name="Koopa" parent="." instance=ExtResource("5_4xg0f")]
-position = Vector2(204, 189)
+[node name="Koopa" parent="." instance=ExtResource("5_2ekpt")]
+position = Vector2(127, 191)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvrfe0h2j7dgv"]
+[gd_scene load_steps=3 format=3 uid="uid://dvrh2j7fe0dgv"]
 
 [ext_resource type="Script" path="res://Component/Debug/StateWatcher/StateWatcher.gd" id="1_tbbaa"]
 

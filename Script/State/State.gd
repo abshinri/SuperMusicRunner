@@ -7,10 +7,14 @@ signal transitioned
 func enter():
 	var collisionShape2D = sprite_node.get_node('CollisionShape2D')
 	if sprite_node.player_state == Enum.PlayerState.BIG:
-		collisionShape2D.scale.y = 2.0
-		collisionShape2D.position.y = -16.0
+		if sprite_node.player_is_squat:
+			collisionShape2D.shape.size.y = 15
+			collisionShape2D.position.y = -7.5
+		else:
+			collisionShape2D.shape.size.y = 30
+			collisionShape2D.position.y = -10.0 
 	else:
-		collisionShape2D.scale.y = 1.0
+		collisionShape2D.shape.size.y = 15
 		collisionShape2D.position.y = -7.5
 
 	pass

@@ -1,5 +1,15 @@
 res://default_bus_layout.tres
 res://Stage/Level/LevelTest.tscn
 res://Component/MusicPlayer/MusicPlayer.gdshader
-res://Object/KoopaShell/KoopaShell.tscn
-res://Object/Shell/KoopaShell.tscn
+res://Object/Shell/Shell.tscn
+res://Character/Player/Player.tscn
+res://Object/Koopa/Koopa.gd
+res://Object/Koopa/Koopa.tscn
+res://Object/QuestionBlock/QuestionBlock.tscn
+res://Character/Player/Player.gd
+res://Character/Player/StateMechine/PlayerSquat.gd
+res://Script/State/State.gd
+res://Character/Player/StateMechine/PlayerIdle.gd
+res://Character/Player/StateMechine/PlayerRun.gd
+res://Character/Player/StateMechine/PlayerJump.gd
+res://Character/Player/StateMechine/PlayerWalk.gd

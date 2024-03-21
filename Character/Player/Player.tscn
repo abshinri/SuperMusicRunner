@@ -1,10 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://ixorcbktqxj5"]
+[gd_scene load_steps=29 format=3 uid="uid://ixorcbktqxj5"]
 
 [ext_resource type="Script" path="res://Character/Player/Player.gd" id="1_7jlo0"]
 [ext_resource type="Texture2D" uid="uid://3qmss8adqcvb" path="res://Asset/Character/mario_sheet.png" id="1_k6hj8"]
 [ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerStateMechine.gd" id="3_c48ae"]
 [ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerIdle.gd" id="4_3tw8o"]
-[ext_resource type="PackedScene" uid="uid://dvrfe0h2j7dgv" path="res://Component/Debug/StateWatcher/StateWatcher.tscn" id="4_jbsxx"]
+[ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerSquat.gd" id="4_glihs"]
+[ext_resource type="PackedScene" uid="uid://dvrh2j7fe0dgv" path="res://Component/Debug/StateWatcher/StateWatcher.tscn" id="4_jbsxx"]
 [ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerWalk.gd" id="5_ryhnv"]
 [ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerJump.gd" id="6_l87rl"]
 [ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerGrowUp.gd" id="7_6lge7"]
@@ -421,11 +422,40 @@ tracks/1/keys = {
 "values": [Vector2(0, -8)]
 }
 
+[sub_resource type="Animation" id="Animation_s7oi2"]
+resource_name = "BigSquat"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(389, 57, 16, 22)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 5)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lhdr0"]
 _data = {
 "BigIdle": SubResource("Animation_crgdg"),
 "BigJump": SubResource("Animation_rdjr0"),
 "BigRun": SubResource("Animation_sjy2k"),
+"BigSquat": SubResource("Animation_s7oi2"),
 "BigStop": SubResource("Animation_uco24"),
 "BigWalk": SubResource("Animation_wca8a"),
 "Dead": SubResource("Animation_hbg65"),
@@ -439,7 +469,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 18
+collision_mask = 16
 script = ExtResource("1_7jlo0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -461,6 +491,7 @@ libraries = {
 position = Vector2(0, 8)
 state_mechine_node = NodePath("../PlayerStateMechine")
 sprite_node = NodePath("..")
+metadata/_edit_lock_ = true
 
 [node name="PlayerStateMechine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "animation_player", "sprite_node")]
 script = ExtResource("3_c48ae")
@@ -488,6 +519,9 @@ script = ExtResource("9_0yr47")
 
 [node name="PlayerDead" type="Node" parent="PlayerStateMechine"]
 script = ExtResource("10_q1lbe")
+
+[node name="PlayerSquat" type="Node" parent="PlayerStateMechine"]
+script = ExtResource("4_glihs")
 
 [node name="JumpBuffDetector" type="RayCast2D" parent="."]
 target_position = Vector2(0, 32)

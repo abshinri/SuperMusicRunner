@@ -2,7 +2,11 @@ class_name PlayerJump extends State
 
 func enter() -> void:
 	super.enter()
-	animation_player.play(sprite_node.player_state + "Jump")
+	print(sprite_node.player_is_squat)
+	if sprite_node.player_state == Enum.PlayerState.BIG and sprite_node.player_is_squat:
+		animation_player.play(sprite_node.player_state + "Squat")
+	else:
+		animation_player.play(sprite_node.player_state + "Jump")
 
 # 跳跃缓存
 var _jump_buffed: bool = false

@@ -9,6 +9,7 @@ func _handle_pack_collision(_collision: KinematicCollision2D):
 	var collider = _collision.get_collider()
 	# 被踩的情况
 	if collider is Player:
+		print("被踩")
 		var collision_angle = rad_to_deg(_collision.get_angle())
 		print(collision_angle)
 		if roundf(collision_angle) == 90:
@@ -18,7 +19,7 @@ func _handle_pack_collision(_collision: KinematicCollision2D):
 
 func packed() -> void:
 	var current_position = position
-	var shell: PackedScene = preload ("res://Object/KoopaShell/KoopaShell.tscn")
+	var shell: PackedScene = preload ("res://Object/Shell/Shell.tscn")
 	var shell_instance = shell.instantiate()
 	shell_instance.position = current_position
 	shell_instance.move_speed = 0
