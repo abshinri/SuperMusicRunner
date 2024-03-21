@@ -24,3 +24,20 @@ label_settings = SubResource("LabelSettings_fu5ng")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="StateLabel2" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "测试"
+label_settings = SubResource("LabelSettings_fu5ng")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

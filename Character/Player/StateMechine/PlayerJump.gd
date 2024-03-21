@@ -9,12 +9,12 @@ var _jump_buffed: bool = false
 
 ## 控制跳跃时的碰撞
 func _handle_movement_collision(_collision: KinematicCollision2D):
-	var collider = _collision.get_collider()
+	var _collider = _collision.get_collider()
 	# 碰到砖的情况
-	if _collision.get_collider() is StaticObject:
+	if _collider is StaticObject:
 		var collision_angle = rad_to_deg(_collision.get_angle())
 		if roundf(collision_angle) == 180:
-			collider.bump(sprite_node.player_state)
+			_collider.bump(sprite_node.player_state)
 
 
 func physics_update(_delta: float) -> void:

@@ -12,7 +12,7 @@ func _ready() -> void:
 	var graphics = $Graphic.get_children()
 	for child in graphics:
 		child.visible = false
-	graphics[type-1].visible = true
+	graphics[type - 1].visible = true
 	
 	pass # Replace with function body.
 
@@ -21,19 +21,22 @@ func _physics_process(_delta: float) -> void:
 	pass
 
 var _bumping := false
-func bump(_state:String) -> void:
-	if _bumping: 
+func bump(_state: String) -> void:
+	if _bumping:
 		return
 	_bumping = true
-	$Graphic.visible = false
-	$CollisionShape2D.disabled = true
+	_on_BumpDetector_body_entered()
+	if _state != Enum.PlayerState.SMALL:
+		$Graphic.visible = false
+		$CollisionShape2D.disabled = true
 	
 	var bump_tween = create_tween()
 	bump_tween.tween_property(self, "position", position + Vector2(0, -4), .12)
 	bump_tween.chain().tween_property(self, "position", position, .12)
 	await bump_tween.finished
-
-	$Break.emitting = true
-	await $Break.finished
+	if _state != Enum.PlayerState.SMALL:
+		$Break.emitting = true
+		await $Break.finished
+		queue_free()
 	_bumping = false
-	queue_free()	
+

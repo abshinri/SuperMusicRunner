@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://jabdayjqc1ic" path="res://Object/UnbreakableBlock/UnbreakableBlock.tscn" id="2_o70bn"]
 [ext_resource type="PackedScene" uid="uid://fxqi433ttxbt" path="res://Object/QuestionBlock/QuestionBlock.tscn" id="3_pg6v3"]
 [ext_resource type="Texture2D" uid="uid://b2td7ii2ya71w" path="res://Asset/Object/overworld_ground_and_stone_tileset.png" id="4_8y3ii"]
-[ext_resource type="PackedScene" uid="uid://dcogeuu6a4qgp" path="res://Object/Mushroom/Mushroom.tscn" id="5_wjqag"]
+[ext_resource type="PackedScene" uid="uid://dcogeuu6a4qgp" path="res://Object/Shell/Shell.tscn" id="5_4xg0f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lvdlf"]
 resource_name = "overworld_ground_and_stone_tileset"
@@ -129,32 +129,33 @@ format = 2
 layer_0/tile_data = PackedInt32Array(851990, 1, 0, 851989, 1, 0, 851988, 1, 0, 851987, 1, 0, 851986, 1, 0, 851985, 1, 0, 851984, 1, 0, 851983, 1, 0, 851982, 1, 0, 851981, 1, 0, 851980, 1, 0, 851979, 1, 0, 851978, 1, 0, 851977, 1, 0, 851975, 1, 0, 851974, 1, 0, 851973, 1, 0, 851972, 1, 0, 851971, 1, 0, 851970, 1, 0, 851969, 1, 0, 851968, 1, 0, 851991, 1, 0, 851976, 1, 0, 786432, 1, 0, 786433, 1, 0, 786434, 1, 0, 786435, 1, 0, 786436, 1, 0, 786437, 1, 0)
 
 [node name="BreakableBlock" parent="." instance=ExtResource("1_gpeum")]
-position = Vector2(312, 136)
-
-[node name="BreakableBlock2" parent="." instance=ExtResource("1_gpeum")]
 position = Vector2(312, 152)
 
+[node name="BreakableBlock2" parent="." instance=ExtResource("1_gpeum")]
+position = Vector2(296, 152)
+
 [node name="UnbreakableBlock" parent="." instance=ExtResource("2_o70bn")]
-position = Vector2(328, 136)
+position = Vector2(328, 152)
 
 [node name="UnbreakableBlock2" parent="." instance=ExtResource("2_o70bn")]
-position = Vector2(328, 136)
+position = Vector2(328, 152)
 
 [node name="UnbreakableBlock3" parent="." instance=ExtResource("2_o70bn")]
-position = Vector2(344, 136)
+position = Vector2(344, 152)
 
 [node name="UnbreakableBlock4" parent="." instance=ExtResource("2_o70bn")]
-position = Vector2(360, 136)
+position = Vector2(360, 152)
 
 [node name="QuestionBlock" parent="." instance=ExtResource("3_pg6v3")]
-position = Vector2(280, 136)
-type = 3
+position = Vector2(280, 152)
+type = 2
+
+[node name="QuestionBlock2" parent="." instance=ExtResource("3_pg6v3")]
+position = Vector2(208, 152)
+coin_number = 5
 
 [node name="UnbreakableBlock5" parent="." instance=ExtResource("2_o70bn")]
 position = Vector2(24, 184)
 
-[node name="UnbreakableBlock6" parent="." instance=ExtResource("2_o70bn")]
-position = Vector2(264, 200)
-
-[node name="Mushroom" parent="." instance=ExtResource("5_wjqag")]
-position = Vector2(224, 184)
+[node name="Koopa" parent="." instance=ExtResource("5_4xg0f")]
+position = Vector2(204, 189)

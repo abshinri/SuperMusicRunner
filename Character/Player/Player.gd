@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 ## 最大速度
 @export var MAX_SPEED:float = 300.0
