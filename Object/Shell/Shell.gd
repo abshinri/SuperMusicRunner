@@ -1,23 +1,30 @@
 class_name Shell extends MoveableObject
 
 func _physics_process(_delta: float) -> void:
-	if !_bumping:
-		super._physics_update(_delta)
+	super._physics_update(_delta)
 
-var _bumping := false
-func bump() -> void:
-	if _bumping: 
-		return
-	_bumping = true
-	velocity.x = -velocity.x
-	var bump_tween = create_tween()
-	bump_tween.tween_property(self, "position", position + Vector2(0, -4), .12)
-	await bump_tween.finished
-	_bumping = false
+var _is_running = false;
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
-		if body.player_state == Enum.PlayerState.SMALL:
-			body.grow_up()
-		queue_free()
-	pass # Replace with function body.
+func _ready() -> void:
+	$Area2D.body_entered.connect(_handle_collision)
+
+func _handle_collision(body: Node2D):
+	if body is Player:
+		if !_is_running:
+			#计算碰撞的位置, 偏左往右跑, 偏右往左跑
+			var collision_position = body.global_position
+			var shell_position = global_position
+			var direction = 1
+			if collision_position.x > shell_position.x:
+				direction = -1
+			#加速度
+			velocity.x = 200 * direction
+			_is_running = true
+		else:
+			#如果是在跑, body位置在本节点左右和下方时被碰撞触发body的die
+			if (body.global_position.x < global_position.x or body.global_position.x > global_position.x) and body.global_position.y > global_position.y - 2:
+				body.hurt()
+			else:
+				body.velocity.y = -250
+			die()
+	

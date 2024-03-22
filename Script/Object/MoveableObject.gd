@@ -23,6 +23,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_update(_delta: float, _disable_y_gravity:=false) -> void:
+	if object_type == ObjectType.ENEMY and state == Enum.EnemyState.DEAD:
+		return
+		
 	if velocity.x < 0:
 		$Sprite2D.flip_h = true
 	elif velocity.x > 0:
@@ -41,4 +44,21 @@ func _physics_update(_delta: float, _disable_y_gravity:=false) -> void:
 		velocity.x = -velocity.x
 		
 	move_and_slide()
+	pass
+
+func die(_stop:=false) -> void:
+	if object_type == ObjectType.ITEM:
+		return
+	if _stop:
+		velocity = Vector2(0,0)
+		state = Enum.EnemyState.DEAD
+		
+	velocity.y = -200
+	# 随机自转一点方向
+	rotation = randf_range( - 1., 1.)
+	set_collision_mask_value(2, false)
+	set_collision_mask_value(5, false)
+	set_collision_layer_value(4, false)
+	await get_tree().create_timer(1.0).timeout
+	queue_free()
 	pass

@@ -5,6 +5,7 @@ export_presets.cfg
 Asset/
 Track/
 Dist/
+Res/
 
 # Imported translations (automatically generated from CSV files)
 *.translation

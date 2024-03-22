@@ -1,11 +1,11 @@
-class_name PlayerGrowUp extends State
+class_name PlayerGrowDown extends State
 
 var _freeze = false
 
 func enter() -> void:
 	super.enter()
 	_freeze = true
-	animation_player.play("GrowUp")
+	animation_player.play("GrowDown")
 	
 	# #关闭重力
 	sprite_node.set_physics_process(false)
@@ -16,7 +16,7 @@ func enter() -> void:
 
 func exit() -> void:
 	super.exit()
-	sprite_node.player_state = Enum.PlayerState.BIG
+	sprite_node.player_state = Enum.PlayerState.SMALL
 
 func physics_update(_delta) -> void:
 	if !_freeze:

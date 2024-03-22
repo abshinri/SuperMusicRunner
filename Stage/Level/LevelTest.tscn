@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ysda5cp0l5p3"]
+[gd_scene load_steps=9 format=3 uid="uid://ysda5cp0l5p3"]
 
 [ext_resource type="PackedScene" uid="uid://12slsqi72klx" path="res://Object/BreakableBlock/BreakableBlock.tscn" id="1_gpeum"]
 [ext_resource type="PackedScene" uid="uid://jabdayjqc1ic" path="res://Object/UnbreakableBlock/UnbreakableBlock.tscn" id="2_o70bn"]
 [ext_resource type="PackedScene" uid="uid://fxqi433ttxbt" path="res://Object/QuestionBlock/QuestionBlock.tscn" id="3_pg6v3"]
 [ext_resource type="Texture2D" uid="uid://b2td7ii2ya71w" path="res://Asset/Object/overworld_ground_and_stone_tileset.png" id="4_8y3ii"]
 [ext_resource type="PackedScene" uid="uid://dcgoeuu6a4qgp" path="res://Object/Koopa/Koopa.tscn" id="5_2ekpt"]
+[ext_resource type="PackedScene" uid="uid://dftukmmlk78dy" path="res://Object/Goomba/Goomba.tscn" id="6_bwnd4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lvdlf"]
 resource_name = "overworld_ground_and_stone_tileset"
@@ -159,3 +160,6 @@ position = Vector2(24, 184)
 
 [node name="Koopa" parent="." instance=ExtResource("5_2ekpt")]
 position = Vector2(127, 191)
+
+[node name="Goomba" parent="." instance=ExtResource("6_bwnd4")]
+position = Vector2(222, 195)

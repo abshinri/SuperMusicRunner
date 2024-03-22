@@ -7,10 +7,12 @@ func _physics_process(_delta: float) -> void:
 func _on_BumpDetector_body_entered() -> void:
 	if get_node('BumpDetector'):
 		var _overlaps_body = get_node('BumpDetector').get_overlapping_bodies()
-		print(_overlaps_body)
 		for node in _overlaps_body:
 			if node.name == 'Mushroom':
 				node.bump()
+			if Global.isEnemy(node):
+				print('enemy')
+				node.die()
 
 ## 检查CrashZone是否同时碰到Crash边界和玩家
 func _on_CrashZone_body_entered() -> void:

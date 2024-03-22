@@ -20,7 +20,6 @@ func _handle_movement_collision(_collision: KinematicCollision2D):
 		if roundf(collision_angle) == 180:
 			_collider.bump(sprite_node.player_state)
 
-
 func physics_update(_delta: float) -> void:
 	super.physics_update(_delta)
 	var collision = sprite_node.get_last_slide_collision()
@@ -28,7 +27,7 @@ func physics_update(_delta: float) -> void:
 		_handle_movement_collision(collision)
 	
 	# 如果角色正向下移动, 且jump_buff_detector探测到落脚点, 则触发d
-	if	sprite_node.velocity.y > 0 and sprite_node.jump_buff_detector.is_colliding() and Input.is_action_just_pressed("move_jump"):
+	if sprite_node.velocity.y > 0 and sprite_node.jump_buff_detector.is_colliding() and Input.is_action_just_pressed("move_jump"):
 		print("jump_buffed")
 		_jump_buffed = true
 
@@ -51,4 +50,3 @@ func physics_update(_delta: float) -> void:
 			transitioned.emit(self, 'PlayerJump')
 		else:
 			transitioned.emit(self, 'PlayerIdle')
-		
