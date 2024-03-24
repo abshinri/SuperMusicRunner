@@ -34,15 +34,16 @@ var player_is_squat := false
 func _handle_movement_collision(_collision: KinematicCollision2D):
 	var _collider = _collision.get_collider()
 	# 碰到敌人的情况
-	print(_collider)
 	if  Global.isEnemy(_collider):
-		if _collider.global_position.y < global_position.y:
+		if _collider is Piranha:
+			hurt()
+		elif _collider.global_position.y < global_position.y:
 			hurt()
 
 
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var collision = get_last_slide_collision()
 	if collision != null:
 		_handle_movement_collision(collision)
@@ -55,7 +56,7 @@ func _physics_process(delta):
 		DECELERATION = 800
 		
 	direction = Input.get_axis("move_left", "move_right")
-	velocity.y += gravity * delta
+	velocity.y += gravity * _delta
 	if velocity.x < 0:
 		$Sprite2D.flip_h = true
 	elif velocity.x > 0:

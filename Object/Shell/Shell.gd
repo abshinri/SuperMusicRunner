@@ -18,13 +18,18 @@ func _handle_collision(body: Node2D):
 			if collision_position.x > shell_position.x:
 				direction = -1
 			#加速度
-			velocity.x = 200 * direction
+			move_speed = 200 * direction
+			state = Enum.EnemyState.WALKING
 			_is_running = true
 		else:
 			#如果是在跑, body位置在本节点左右和下方时被碰撞触发body的die
-			if (body.global_position.x < global_position.x or body.global_position.x > global_position.x) and body.global_position.y > global_position.y - 2:
+			if (body.global_position.x < global_position.x - 8  or body.global_position.x > global_position.x + 8) and body.global_position.y > global_position.y - 2:
 				body.hurt()
 			else:
 				body.velocity.y = -250
+			die()
+	else:
+		if body.die:
+			body.die()
 			die()
 	

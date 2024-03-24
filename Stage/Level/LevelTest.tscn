@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ysda5cp0l5p3"]
+[gd_scene load_steps=11 format=3 uid="uid://ysda5cp0l5p3"]
 
 [ext_resource type="PackedScene" uid="uid://12slsqi72klx" path="res://Object/BreakableBlock/BreakableBlock.tscn" id="1_gpeum"]
 [ext_resource type="PackedScene" uid="uid://jabdayjqc1ic" path="res://Object/UnbreakableBlock/UnbreakableBlock.tscn" id="2_o70bn"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b2td7ii2ya71w" path="res://Asset/Object/overworld_ground_and_stone_tileset.png" id="4_8y3ii"]
 [ext_resource type="PackedScene" uid="uid://dcgoeuu6a4qgp" path="res://Object/Koopa/Koopa.tscn" id="5_2ekpt"]
 [ext_resource type="PackedScene" uid="uid://dftukmmlk78dy" path="res://Object/Goomba/Goomba.tscn" id="6_bwnd4"]
+[ext_resource type="PackedScene" uid="uid://dv67tup65i12t" path="res://Object/Pip/Pip.tscn" id="7_ldi7a"]
+[ext_resource type="PackedScene" uid="uid://bnqh0xrbf80ky" path="res://Character/Piranha/Piranha.tscn" id="8_shstx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lvdlf"]
 resource_name = "overworld_ground_and_stone_tileset"
@@ -147,6 +149,9 @@ position = Vector2(344, 152)
 [node name="UnbreakableBlock4" parent="." instance=ExtResource("2_o70bn")]
 position = Vector2(360, 152)
 
+[node name="UnbreakableBlock6" parent="." instance=ExtResource("2_o70bn")]
+position = Vector2(376, 152)
+
 [node name="QuestionBlock" parent="." instance=ExtResource("3_pg6v3")]
 position = Vector2(280, 152)
 type = 2
@@ -163,3 +168,10 @@ position = Vector2(127, 191)
 
 [node name="Goomba" parent="." instance=ExtResource("6_bwnd4")]
 position = Vector2(222, 195)
+
+[node name="Pip" parent="." instance=ExtResource("7_ldi7a")]
+position = Vector2(169, 168)
+pip_height = 3
+
+[node name="Piranha" parent="Pip" instance=ExtResource("8_shstx")]
+position = Vector2(127, -24)

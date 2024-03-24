@@ -10,6 +10,7 @@ func packed() -> void:
 	var shell_instance = shell.instantiate()
 	shell_instance.position = current_position
 	shell_instance.move_speed = 0
+	
 	get_parent().add_child(shell_instance)
 	queue_free()
 

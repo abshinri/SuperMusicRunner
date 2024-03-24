@@ -7,11 +7,13 @@ var current_track := - 1
 
 # Object Global.isEnemy()
 func isEnemy(body : Node2D) -> bool:
-    if body is Goomba:
-        return true
-    elif body is Koopa:
-        return true
-    else:
-        return false
+	if body is Goomba:
+		return true
+	elif body is Koopa:
+		return true
+	elif body is Piranha:
+		return true
+	else:
+		return false
 
-    
+	

@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv67tup65i12t"]
+
+[ext_resource type="Script" path="res://Object/Pip/Pip.gd" id="1_hs5w8"]
+[ext_resource type="Texture2D" uid="uid://7oqmivmvh1se" path="res://Asset/Object/overworld_pipes_and_scenery_tileset.png" id="2_xo8se"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwfup"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wore0"]
+size = Vector2(17, 32)
+
+[node name="Pip" type="AnimatableBody2D"]
+collision_layer = 16
+collision_mask = 9
+script = ExtResource("1_hs5w8")
+
+[node name="Head" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Head"]
+texture = ExtResource("2_xo8se")
+region_enabled = true
+region_rect = Rect2(119, 0, 16, 16)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Head"]
+position = Vector2(16, 0)
+texture = ExtResource("2_xo8se")
+region_enabled = true
+region_rect = Rect2(136, 0, 16, 16)
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Body"]
+position = Vector2(0, 16)
+texture = ExtResource("2_xo8se")
+region_enabled = true
+region_rect = Rect2(119, 17, 16, 16)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Body"]
+position = Vector2(16, 16)
+texture = ExtResource("2_xo8se")
+region_enabled = true
+region_rect = Rect2(136, 17, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_cwfup")
+
+[node name="CrashZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrashZone"]
+position = Vector2(-16.5, 8)
+shape = SubResource("RectangleShape2D_wore0")
+debug_color = Color(0.623529, 0.533333, 0, 0.419608)

@@ -16,6 +16,8 @@ func _handle_movement_collision(_collision: KinematicCollision2D):
 	var _collider = _collision.get_collider()
 	# 碰到砖的情况
 	if _collider is StaticObject:
+		if _collider is Pip:
+			return
 		var collision_angle = rad_to_deg(_collision.get_angle())
 		if roundf(collision_angle) == 180:
 			_collider.bump(sprite_node.player_state)

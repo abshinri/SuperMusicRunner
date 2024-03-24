@@ -41,7 +41,7 @@ func _physics_update(_delta: float, _disable_y_gravity:=false) -> void:
 	#elif not floor_detector_right.is_colliding():
 		#velocity.x = -WALK_SPEED
 	if is_on_wall():
-		velocity.x = -velocity.x
+		move_speed = -move_speed
 		
 	move_and_slide()
 	pass
