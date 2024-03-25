@@ -7,4 +7,5 @@ signal mucis_player_loaded()
 signal music_player_played()
 signal music_player_finished()
 
-
+# SEPlayer
+signal play_se()

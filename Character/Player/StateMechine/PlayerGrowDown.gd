@@ -4,6 +4,7 @@ var _freeze = false
 
 func enter() -> void:
 	super.enter()
+	SignalBank.play_se.emit('Warp')
 	_freeze = true
 	animation_player.play("GrowDown")
 	

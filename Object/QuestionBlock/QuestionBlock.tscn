@@ -80,6 +80,7 @@ explosiveness = 1.0
 fixed_fps = 24
 
 [node name="CrashZone" type="Area2D" parent="."]
+visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CrashZone"]

@@ -10,7 +10,7 @@ func _on_BumpDetector_body_entered() -> void:
 		for node in _overlaps_body:
 			if node.name == 'Mushroom':
 				node.bump()
-			if Global.isEnemy(node):
+			if Global.is_enemy(node):
 				print('enemy')
 				node.die()
 

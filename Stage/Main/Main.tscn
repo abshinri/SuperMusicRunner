@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0cflngcn6uur"]
+[gd_scene load_steps=4 format=3 uid="uid://c0cflngcn6uur"]
 
 [ext_resource type="PackedScene" uid="uid://x8g6e68mpoln" path="res://Component/FileReader/FileReader.tscn" id="1_mgl8a"]
 [ext_resource type="PackedScene" uid="uid://pva8a35gqq6u" path="res://Component/MusicPlayer/MusicPlayer.tscn" id="2_3v2ig"]
-[ext_resource type="PackedScene" uid="uid://1s657cgcw082" path="res://Component/ObjectGenerator/ObjectGenerator.tscn" id="3_gx3lh"]
 [ext_resource type="PackedScene" uid="uid://c4clxc7oglyeu" path="res://Stage/Game/Game.tscn" id="3_x8gc7"]
 
 [node name="Main" type="Control"]
@@ -20,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.133333, 0.133333, 0.133333, 1)
+color = Color(0.160784, 0.505882, 0.733333, 1)
 
 [node name="Hidden" type="Control" parent="."]
 layout_mode = 1
@@ -41,10 +40,7 @@ offset_right = 576.0
 offset_bottom = 324.0
 
 [node name="MusicPlayer" parent="Hidden" instance=ExtResource("2_3v2ig")]
+visible = false
 layout_mode = 1
-
-[node name="ObjectGenerator" parent="Hidden" node_paths=PackedStringArray("game", "music_player") instance=ExtResource("3_gx3lh")]
-game = NodePath("../../Game")
-music_player = NodePath("../MusicPlayer")
 
 [node name="Game" parent="." instance=ExtResource("3_x8gc7")]

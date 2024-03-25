@@ -23,6 +23,7 @@ func _physics_process(_delta: float) -> void:
 var _bumping := false
 func bump(_state: String) -> void:
 	if _bumping:
+		SignalBank.play_se.emit('Bump')
 		return
 	_bumping = true
 	_bumping = false

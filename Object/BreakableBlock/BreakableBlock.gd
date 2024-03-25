@@ -27,9 +27,11 @@ func bump(_state: String) -> void:
 	_bumping = true
 	_on_BumpDetector_body_entered()
 	if _state != Enum.PlayerState.SMALL:
+		SignalBank.play_se.emit('Break')
 		$Graphic.visible = false
 		$CollisionShape2D.disabled = true
-	
+	else:
+		SignalBank.play_se.emit('Bump')
 	var bump_tween = create_tween()
 	bump_tween.tween_property(self, "position", position + Vector2(0, -4), .12)
 	bump_tween.chain().tween_property(self, "position", position, .12)

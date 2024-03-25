@@ -28,15 +28,21 @@ func _physics_process(_delta: float) -> void:
 
 ## 开始执行状态转变
 func _on_child_transition(_state:State, _next_state_name:String) -> void:
-	print("Transitioning from ", _state.name, " to ", _next_state_name)
 	# 确保这次的转变是从 当前状态 到 下一个状态
 	if _state != current_state:
 		return
+
+	# 相同的状态不需要转变
+	if _state.name == _next_state_name:
+		return
+
 	# 从状态字典里找到要跳转的状态
 	var _next_state = states.get(_next_state_name.to_lower())
 	
 	if !_next_state:
 		return
+
+	print("Transitioning from ", _state.name, " to ", _next_state_name)
 	# 执行状态退出
 	if current_state:
 		current_state.exit()

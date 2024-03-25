@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv4hhm85ncsrf"]
+
+[ext_resource type="Texture2D" uid="uid://b1aglwqjky7d8" path="res://Asset/Object/Hill2.png" id="1_s6k3j"]
+[ext_resource type="Script" path="res://Script/Object/BackgroundObject.gd" id="1_vrato"]
+
+[node name="Hill2" type="Node2D"]
+script = ExtResource("1_vrato")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_s6k3j")

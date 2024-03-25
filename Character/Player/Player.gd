@@ -16,8 +16,8 @@ class_name Player extends CharacterBody2D
 @export var AIR_DECELERATION:float = 150.0
 ## 跳跃加速度
 @export var JUMP_VELOCITY:float = -400.0
-## 跳跃减速度
-@export var JUMP_CUT:float = -200.0
+## 最低小跳(越大越小)
+@export var JUMP_CUT:float = -280.0
 ## 方向
 var direction:float
 ## 重力
@@ -29,19 +29,15 @@ var player_is_squat := false
 @onready var jump_buff_detector := $JumpBuffDetector as RayCast2D
 
 
-
 ## 控制碰撞情况
 func _handle_movement_collision(_collision: KinematicCollision2D):
 	var _collider = _collision.get_collider()
 	# 碰到敌人的情况
-	if  Global.isEnemy(_collider):
+	if  Global.is_enemy(_collider):
 		if _collider is Piranha:
 			hurt()
 		elif _collider.global_position.y < global_position.y:
 			hurt()
-
-
-
 
 func _physics_process(_delta):
 	var collision = get_last_slide_collision()

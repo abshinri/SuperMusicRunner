@@ -29,6 +29,7 @@ func _generate_tween(_target, _y:=- 24, _duration:=.16) -> bool:
 	return true
 
 func _generat_mushroom() -> void:
+	SignalBank.play_se.emit('Item')
 	var mushroom = _item.instantiate()
 	mushroom.position = position
 	await _generate_tween(mushroom)
@@ -37,6 +38,7 @@ func _generat_mushroom() -> void:
 	mushroom.state = Enum.ItemState.WALKING
 
 func _generate_coin() -> void:
+	SignalBank.play_se.emit('Coin')
 	coin_number -= 1
 	var coin = _item.instantiate()
 	coin.position = position
@@ -52,13 +54,14 @@ func _handle_bump_top_collision(_collision: KinematicCollision2D) -> void:
 var _bumping := false
 func bump(_state: String) -> void:
 	if !$Graphic/Type1.visible:
+		SignalBank.play_se.emit('Bump')
 		return
 
 	if _bumping:
 		return
 	_bumping = true
 	_on_BumpDetector_body_entered()
-	if type == Type.MUSHROOM or (type == Type.COIN and coin_number < 1):
+	if type == Type.MUSHROOM or (type == Type.COIN and coin_number <= 1):
 		$Graphic/Type1.visible = false
 		$Graphic/Type2.visible = true
 

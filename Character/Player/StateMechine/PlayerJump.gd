@@ -2,7 +2,7 @@ class_name PlayerJump extends State
 
 func enter() -> void:
 	super.enter()
-	print(sprite_node.player_is_squat)
+	SignalBank.play_se.emit('Jump')
 	if sprite_node.player_state == Enum.PlayerState.BIG and sprite_node.player_is_squat:
 		animation_player.play(sprite_node.player_state + "Squat")
 	else:

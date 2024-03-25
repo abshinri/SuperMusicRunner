@@ -10,6 +10,13 @@ func enter() -> void:
 	
 func physics_update(_delta) -> void:
 	super.physics_update(_delta)
+	if  sprite_node.velocity.x == 0:
+		var direction = Input.get_axis("move_left", "move_right")
+		if direction < 0:
+			sprite_node.flip_h = true
+		elif direction > 0:
+			sprite_node.flip_h = false
+			
 	if not sprite_node.is_on_floor():
 		transitioned.emit(self,'PlayerJump')
 	if Input.is_action_just_pressed("move_jump") and sprite_node.is_on_floor():

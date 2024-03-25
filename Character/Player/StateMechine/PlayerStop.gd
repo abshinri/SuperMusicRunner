@@ -2,6 +2,7 @@ class_name PlayerStop extends State
 
 func enter() -> void:
 	super.enter()
+	SignalBank.play_se.emit('Skid')
 	animation_player.play(sprite_node.player_state + "Stop")
 	
 func physics_update(_delta) -> void:

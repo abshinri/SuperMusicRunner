@@ -1,6 +1,7 @@
 class_name Piranha extends CharacterBody2D
 
 @export var move_speed: float = 20
+@export var direction := -1
 ## 重力
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -17,7 +18,7 @@ func _physics_process(_delta):
 	if is_on_wall():
 		if not is_on_wall_cool_down:
 			is_on_wall_cool_down = true
-			move_speed = -move_speed
+			move_speed = -move_speed * direction
 			await get_tree().create_timer(0.5).timeout
 			is_on_wall_cool_down = false
 	move_and_slide()

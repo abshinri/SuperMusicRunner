@@ -4,11 +4,11 @@ var _freeze = false
 
 func enter() -> void:
 	super.enter()
-	_freeze = true
-	animation_player.play("GrowUp")
-	
 	# #关闭重力
 	sprite_node.set_physics_process(false)
+	SignalBank.play_se.emit('Powerup')
+	animation_player.play("GrowUp")
+	
 	await animation_player.animation_finished
 	_freeze = false
 	sprite_node.set_physics_process(true)
