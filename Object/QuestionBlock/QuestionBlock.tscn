@@ -50,6 +50,7 @@ _data = {
 size = Vector2(16, 2)
 
 [node name="QuestionBlock" type="AnimatableBody2D"]
+z_index = 3
 collision_layer = 16
 script = ExtResource("1_0yeks")
 

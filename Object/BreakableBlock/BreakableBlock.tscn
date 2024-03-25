@@ -27,6 +27,7 @@ size = Vector2(17, 16)
 size = Vector2(16, 2)
 
 [node name="BreakableBlock" type="AnimatableBody2D"]
+z_index = 3
 collision_layer = 16
 script = ExtResource("1_vjyj6")
 

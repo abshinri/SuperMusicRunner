@@ -24,6 +24,7 @@ region = Rect2(34, 0, 8, 8)
 size = Vector2(17, 16)
 
 [node name="UnbreakableBlock" type="AnimatableBody2D"]
+z_index = 3
 collision_layer = 16
 script = ExtResource("1_fnk0j")
 
