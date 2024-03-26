@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerGrowDown.gd" id="13_am4ec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o76oy"]
-size = Vector2(10, 15)
+size = Vector2(10, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejjev"]
 size = Vector2(10, 15)
@@ -1107,7 +1107,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 10
-collision_mask = 18
+collision_mask = 16
 script = ExtResource("1_7jlo0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

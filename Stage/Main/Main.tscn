@@ -40,7 +40,6 @@ offset_right = 576.0
 offset_bottom = 324.0
 
 [node name="MusicPlayer" parent="Hidden" instance=ExtResource("2_3v2ig")]
-visible = false
 layout_mode = 1
 
 [node name="Game" parent="." instance=ExtResource("3_x8gc7")]

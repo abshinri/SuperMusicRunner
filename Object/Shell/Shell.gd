@@ -13,6 +13,7 @@ func _handle_collision(body: Node2D):
 	print(body)
 	if body is Player:
 		if !_is_running:
+			print('collision !_is_running')
 			#计算碰撞的位置, 偏左往右跑, 偏右往左跑
 			var collision_position = body.global_position
 			var shell_position = global_position
@@ -25,6 +26,7 @@ func _handle_collision(body: Node2D):
 			SignalBank.play_se.emit('Kick')
 			_is_running = true
 		else:
+			print('collision _is_running')
 			#如果是在跑, body位置在本节点左右和下方时被碰撞触发body的die
 			if (body.global_position.x < global_position.x - 8  or body.global_position.x > global_position.x + 8) and body.global_position.y > global_position.y - 2:
 				body.hurt()
@@ -33,8 +35,8 @@ func _handle_collision(body: Node2D):
 			die()
 			SignalBank.play_se.emit('Kick')
 	else:
-		if Global.is_enemy(body):
+		print('collision not player')
+		if Global.is_enemy(body) and _is_running:
 			body.die()
 			die()
 			SignalBank.play_se.emit('Kick')
-	

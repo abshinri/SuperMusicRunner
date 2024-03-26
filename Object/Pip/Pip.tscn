@@ -48,7 +48,7 @@ shape = SubResource("RectangleShape2D_cwfup")
 
 [node name="CrashZone" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 17
+collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CrashZone"]
 position = Vector2(-16.5, 8)

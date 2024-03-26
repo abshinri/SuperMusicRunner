@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4clxc7oglyeu"]
+[gd_scene load_steps=8 format=3 uid="uid://c4clxc7oglyeu"]
 
 [ext_resource type="Script" path="res://Stage/Game/Game.gd" id="1_g226i"]
+[ext_resource type="Script" path="res://Stage/Game/Camera2D.gd" id="3_1um1p"]
 [ext_resource type="PackedScene" uid="uid://ixorcbktqxj5" path="res://Character/Player/Player.tscn" id="3_u0qny"]
 [ext_resource type="PackedScene" uid="uid://t6snbu0q2eal" path="res://Stage/Level/Level.tscn" id="5_f83q1"]
 [ext_resource type="Script" path="res://Stage/Game/CleanObjectZone.gd" id="5_nwkw8"]
@@ -17,31 +18,34 @@ script = ExtResource("1_g226i")
 [node name="Player" parent="." instance=ExtResource("3_u0qny")]
 position = Vector2(46, 138)
 
-[node name="BlockPlayerZone" type="StaticBody2D" parent="."]
-collision_layer = 16
-collision_mask = 0
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("3_1um1p")
 
-[node name="CollisionShape2DLeft" type="CollisionShape2D" parent="BlockPlayerZone"]
+[node name="BlockPlayerZone" type="StaticBody2D" parent="Camera2D"]
+collision_layer = 48
+
+[node name="CollisionShape2DLeft" type="CollisionShape2D" parent="Camera2D/BlockPlayerZone"]
 position = Vector2(-8, 112)
 shape = SubResource("RectangleShape2D_ovuos")
 
-[node name="CollisionShape2DRight" type="CollisionShape2D" parent="BlockPlayerZone"]
+[node name="CollisionShape2DRight" type="CollisionShape2D" parent="Camera2D/BlockPlayerZone"]
 position = Vector2(392, 112)
 shape = SubResource("RectangleShape2D_ovuos")
 
-[node name="CleanObjectZone" type="Area2D" parent="."]
+[node name="CleanObjectZone" type="Area2D" parent="Camera2D"]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("5_nwkw8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CleanObjectZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/CleanObjectZone"]
 position = Vector2(-28, 104)
 shape = SubResource("RectangleShape2D_pjyj7")
 debug_color = Color(0.964706, 0, 0.490196, 0.419608)
 
 [node name="Level" parent="." instance=ExtResource("5_f83q1")]
 
-[connection signal="area_entered" from="CleanObjectZone" to="CleanObjectZone" method="_on_area_entered"]
-[connection signal="area_shape_entered" from="CleanObjectZone" to="CleanObjectZone" method="_on_area_shape_entered"]
-[connection signal="body_entered" from="CleanObjectZone" to="CleanObjectZone" method="_on_body_entered"]
-[connection signal="body_shape_entered" from="CleanObjectZone" to="CleanObjectZone" method="_on_body_shape_entered"]
+[connection signal="area_entered" from="Camera2D/CleanObjectZone" to="Camera2D/CleanObjectZone" method="_on_area_entered"]
+[connection signal="area_shape_entered" from="Camera2D/CleanObjectZone" to="Camera2D/CleanObjectZone" method="_on_area_shape_entered"]
+[connection signal="body_entered" from="Camera2D/CleanObjectZone" to="Camera2D/CleanObjectZone" method="_on_body_entered"]
+[connection signal="body_shape_entered" from="Camera2D/CleanObjectZone" to="Camera2D/CleanObjectZone" method="_on_body_shape_entered"]

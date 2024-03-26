@@ -1,4 +1,10 @@
 class_name Koopa extends MoveableObject
+
+func _ready() -> void:
+	super._ready()
+	print('Koopa_ready')
+	can_dance = true
+
 func _physics_process(_delta: float) -> void:
 	super._physics_update(_delta)
 

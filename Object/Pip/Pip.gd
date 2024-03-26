@@ -11,18 +11,24 @@ enum Type {EMPTY, ITEM, ENEMY}
 func _ready() -> void:
 	var add_num = 0
 	if pip_height > 1:
-		for i in range(1, pip_height - 1):
+		for i in range(1, pip_height):
 			add_num += 1
 			var pip = $Body.duplicate()
 			pip.position = Vector2(0, i * 16 )
 			add_child(pip)
+		## 增加高度
+		#$CrashZone/CollisionShape2D.shape.size.y += add_num * 16
+		#$CollisionShape2D.shape.size.y += add_num * 16		
+
+		$CrashZone/CollisionShape2D.apply_scale(Vector2(1., add_num * 0.5 + 1))
+		$CollisionShape2D.apply_scale(Vector2(1., add_num * 0.5 + 1))
+		
+		$CrashZone/CollisionShape2D.position.y += add_num * 8
+		$CollisionShape2D.position.y += add_num * 8
 	
-	# 增加高度
-	$CrashZone/CollisionShape2D.shape.size.y += add_num * 16
-	$CollisionShape2D.shape.size.y += add_num * 16
-	
-	$CrashZone/CollisionShape2D.position.y += add_num * 8
-	$CollisionShape2D.position.y += add_num * 8
+	if scale.x > 1:
+		$CrashZone/CollisionShape2D.apply_scale(Vector2((1 / scale.x), 1))
+		$CrashZone/CollisionShape2D.position.x += ($CrashZone/CollisionShape2D.shape.get_rect().size.x / 4)
 	pass # Replace with function body.
 
 func _physics_process(_delta: float) -> void:

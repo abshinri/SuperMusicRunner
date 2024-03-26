@@ -1,20 +1,24 @@
 class_name MoveableObject extends CharacterBody2D
 
-enum ObjectType {
-	ITEM, ENEMY
-}
-
 @export var can_fall := false
 @export var move_speed := 20
 @export var object_type := ObjectType.ITEM
 @export var direction := - 1
 @onready var gravity: int = ProjectSettings.get("physics/2d/default_gravity")
 
-var can_dance = true
 var _debug_name = preload ("res://Component/Debug/ObjectName/ObjectName.tscn")
+const dance_shader = preload ("res://Shader/Swing.gdshader")
+enum ObjectType {
+	ITEM, ENEMY
+}
+
+var can_dance := false
+
 var state
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print('MoveableObject_ready')
+	SignalBank.start_dance.connect(_on_start_dance)
 	add_child(_debug_name.instantiate())
 	if object_type == ObjectType.ITEM:
 		state = Enum.ItemState.WALKING
@@ -23,9 +27,14 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _handle_movement_collision(_collision) -> void:
+	if self is Shell:
+		return
 	var _collider = _collision.get_collider()
 	if _collider is Player:
 		_collider.hurt()
+	else:
+		move_speed = -move_speed
+
 var is_on_wall_cool_down = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_update(_delta: float, _disable_y_gravity:=false) -> void:
@@ -37,7 +46,7 @@ func _physics_update(_delta: float, _disable_y_gravity:=false) -> void:
 		if collision != null:
 			_handle_movement_collision(collision)
 
-	if not (self is Mushroom): 
+	if not (self is Mushroom):
 		if velocity.x < 0:
 			$Sprite2D.flip_h = true
 		elif velocity.x > 0:
@@ -57,9 +66,9 @@ func _physics_update(_delta: float, _disable_y_gravity:=false) -> void:
 			if not is_on_wall_cool_down:
 				is_on_wall_cool_down = true
 				SignalBank.play_se.emit('Bump')
-				await get_tree().create_timer(0.5).timeout
+				await get_tree().create_timer(0.1).timeout
 				is_on_wall_cool_down = false
-		move_speed = -move_speed
+				move_speed = -move_speed
 		
 	move_and_slide()
 	pass
@@ -80,3 +89,10 @@ func die(_stop:=false) -> void:
 	await get_tree().create_timer(1.0).timeout
 	queue_free()
 	pass
+
+func _on_start_dance() -> void:
+	if can_dance:
+		get_node('Sprite2D').material = ShaderMaterial.new()
+		get_node('Sprite2D').material.shader = dance_shader
+		get_node('Sprite2D').material.set_shader_parameter('strength', 2.)
+		get_node('Sprite2D').material.set_shader_parameter('speed', 3.)

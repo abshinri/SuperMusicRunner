@@ -41,3 +41,27 @@ func _play_se(type):
 	await se.finished
 	se.queue_free()
 	pass
+
+
+# func _play_se(type, loop: bool, _callback: Callable):
+
+# 	var se = AudioStreamPlayer.new()
+# 	se.stream = SEDict[type]
+	
+# 	if loop:
+# 		se.stream.loop_mode = 1
+# 		se.stream.loop_begin = 0
+# 		se.stream.loop_end = -1
+
+# 		add_child(se)
+# 		se.play()
+		
+# 		_callback.call(se)
+# 	else:
+# 		add_child(se)
+# 		se.play()
+
+# 		await se.finished
+# 		se.queue_free()
+	
+# 	pass

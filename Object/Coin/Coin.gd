@@ -17,5 +17,6 @@ func bump() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and _bumping == false:
+		SignalBank.play_se.emit('Coin')
 		queue_free()
 	pass # Replace with function body.

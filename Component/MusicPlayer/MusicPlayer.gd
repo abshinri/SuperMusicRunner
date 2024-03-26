@@ -33,29 +33,29 @@ func _ready() -> void:
 	max_values.fill(0.0)
 	pass # Replace with function body.
 
-func _process(_delta) -> void:
-	var prev_hz = 0
-	var data = []
-	for i in range(1, VU_COUNT + 1):
-		var hz = i * FREQ_MAX / VU_COUNT
-		var f = spectrum.get_magnitude_for_frequency_range(prev_hz, hz)
-		var energy = clamp((MIN_DB + linear_to_db(f.length())) / MIN_DB, 0.0, 1.0)
-		data.append(energy * HEIGHT_SCALE)
-		prev_hz = hz
-	for i in range(VU_COUNT):
-		if data[i] > max_values[i]:
-			max_values[i] = data[i]
-		else:
-			max_values[i] = lerp(max_values[i], data[i], ANIMATION_SPEED)
-		if data[i] <= 0.0:
-			min_values[i] = lerp(min_values[i], 0.0, ANIMATION_SPEED)
-	fft = []
-	for i in range(VU_COUNT):
-		fft.append(lerp(min_values[i], max_values[i], ANIMATION_SPEED))
-	if not playing:
-		fft = []
-	color_rect.get_material().set_shader_parameter("freq_data", fft)
-	pass
+#func _process(_delta) -> void:
+	#var prev_hz = 0
+	#var data = []
+	#for i in range(1, VU_COUNT + 1):
+		#var hz = i * FREQ_MAX / VU_COUNT
+		#var f = spectrum.get_magnitude_for_frequency_range(prev_hz, hz)
+		#var energy = clamp((MIN_DB + linear_to_db(f.length())) / MIN_DB, 0.0, 1.0)
+		#data.append(energy * HEIGHT_SCALE)
+		#prev_hz = hz
+	#for i in range(VU_COUNT):
+		#if data[i] > max_values[i]:
+			#max_values[i] = data[i]
+		#else:
+			#max_values[i] = lerp(max_values[i], data[i], ANIMATION_SPEED)
+		#if data[i] <= 0.0:
+			#min_values[i] = lerp(min_values[i], 0.0, ANIMATION_SPEED)
+	#fft = []
+	#for i in range(VU_COUNT):
+		#fft.append(lerp(min_values[i], max_values[i], ANIMATION_SPEED))
+	#if not playing:
+		#fft = []
+	#color_rect.get_material().set_shader_parameter("freq_data", fft)
+	#pass
 
 func _init_music_info(stream:AudioStreamOggVorbis)->void:
 	current_music_info.bar_beats = stream.bar_beats
@@ -63,27 +63,30 @@ func _init_music_info(stream:AudioStreamOggVorbis)->void:
 	current_music_info.bpm = stream.bpm
 	current_music_info.length = stream.get_length()
 
-func _load_and_play() -> void:
+# 扫描本地文件的版本
+#func _load_and_play() -> void:
+	#print('_load_and_play')
+	#var stream = Global.file_reader_loaded_list[0].stream
+	#_init_music_info(stream)
+	#$AudioStreamPlayer.stream = stream
+	#playing = true
+	#$AudioStreamPlayer.play()
+	#SignalBank.music_player_played.emit()
+	#await $AudioStreamPlayer.finished
+	#playing = false
+
+# 这是拖拽播放的版本
+func _load_and_play(stream:AudioStreamOggVorbis) -> void:
 	print('_load_and_play')
-	var stream = Global.file_reader_loaded_list[0].stream
 	_init_music_info(stream)
 	$AudioStreamPlayer.stream = stream
+	SignalBank.game_start.emit()
+	await get_tree().create_timer(1.0).timeout
 	playing = true
 	$AudioStreamPlayer.play()
 	SignalBank.music_player_played.emit()
 	await $AudioStreamPlayer.finished
 	playing = false
-
-# 这是拖拽播放的版本, 取消
-# func _load_and_play(stream:AudioStreamOggVorbis) -> void:
-# 	print('_load_and_play')
-# 	_init_music_info(stream)
-# 	$AudioStreamPlayer.stream = stream
-# 	playing = true
-# 	$AudioStreamPlayer.play()
-# 	SignalBank.music_player_played.emit()
-# 	await $AudioStreamPlayer.finished
-# 	playing = false
 
 func get_music_info() -> Dictionary:
 	print('get_music_info')

@@ -3,6 +3,7 @@ class_name UnbreakableBlock extends StaticObject
 enum Type {
 	STONE = 1,
 	FLOOR = 2,
+	DIRT = 3
 }
 
 @export var type: Type = Type.STONE
