@@ -5,6 +5,7 @@ func enter() -> void:
 		transitioned.emit(self, 'PiranhaDance')
 	else:
 		super.enter()
+		sprite_node.current_state = sprite_node.StateEnum.PiranhaWalk
 		animation_player.play(('Under' if sprite_node.piranha_is_under else 'Ground') + "Walk")
 	
 func physics_update(_delta) -> void:

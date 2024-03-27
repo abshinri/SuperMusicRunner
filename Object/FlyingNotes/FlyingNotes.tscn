@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://d16cn8dengf1s"]
+
+[ext_resource type="Shader" path="res://Shader/FlyingNotes.gdshader" id="1_dft3h"]
+[ext_resource type="Texture2D" uid="uid://cwj6gvnmvesay" path="res://Asset/Object/notes.png" id="2_com2b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7hwc1"]
+shader = ExtResource("1_dft3h")
+shader_parameter/color1 = Color(0.54902, 0.839216, 0, 1)
+shader_parameter/color2 = Color(0.709804, 0.192157, 0.129412, 1)
+shader_parameter/transition_speed = 2.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ebjns"]
+particle_flag_disable_z = true
+angle_min = -16.2
+angle_max = 16.2
+direction = Vector3(1, -20, 0)
+spread = 26.798
+initial_velocity_min = 33.71
+initial_velocity_max = 67.41
+gravity = Vector3(0, 98, 0)
+
+[node name="FlyingNotes" type="GPUParticles2D"]
+material = SubResource("ShaderMaterial_7hwc1")
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_ebjns")
+texture = ExtResource("2_com2b")
+explosiveness = 1.0
+randomness = 0.1

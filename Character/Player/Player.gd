@@ -22,12 +22,19 @@ class_name Player extends CharacterBody2D
 var direction:float
 ## 重力
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+const dance_shader = preload ("res://Shader/Swing.gdshader")
 
 var player_state := Enum.PlayerState.SMALL
 var player_is_squat := false
 
 @onready var jump_buff_detector := $JumpBuffDetector as RayCast2D
 
+func _ready() -> void:
+	SignalBank.start_dance.connect(func():
+		var sprite2D = get_node('Sprite2D')
+		sprite2D.material.set_shader_parameter('strength', 1.)
+		sprite2D.get_node('FlyingNotes').emitting = true
+		)
 
 ## 控制碰撞情况
 func _handle_movement_collision(_collision: KinematicCollision2D):

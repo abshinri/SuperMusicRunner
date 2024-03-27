@@ -70,6 +70,7 @@ move_down={
 2d_physics/layer_4="shell"
 2d_physics/layer_5="block"
 2d_physics/layer_6="CrashPlayer"
+2d_physics/layer_7="Piranha"
 
 [rendering]
 

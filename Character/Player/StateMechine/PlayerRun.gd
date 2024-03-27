@@ -3,7 +3,12 @@ class_name PlayerRun extends State
 func enter() -> void:
 	super.enter()
 	animation_player.play(sprite_node.player_state + "Run")
-	
+	$"../../Sprite2D/RunningDust".emitting = true
+
+func exit() -> void:
+	super.exit()
+	$"../../Sprite2D/RunningDust".emitting = false
+
 func physics_update(_delta) -> void:
 	super.physics_update(_delta)
 	if Input.is_action_pressed("move_down") and sprite_node.is_on_floor() and sprite_node.player_state == Enum.PlayerState.BIG:

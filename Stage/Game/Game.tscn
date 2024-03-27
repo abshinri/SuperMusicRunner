@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4clxc7oglyeu"]
+[gd_scene load_steps=9 format=3 uid="uid://c4clxc7oglyeu"]
 
 [ext_resource type="Script" path="res://Stage/Game/Game.gd" id="1_g226i"]
 [ext_resource type="Script" path="res://Stage/Game/Camera2D.gd" id="3_1um1p"]
@@ -12,6 +12,9 @@ size = Vector2(16, 224)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjyj7"]
 size = Vector2(24, 208)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aibj2"]
+size = Vector2(16, 16)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_g226i")
 
@@ -23,7 +26,7 @@ anchor_mode = 0
 script = ExtResource("3_1um1p")
 
 [node name="BlockPlayerZone" type="StaticBody2D" parent="Camera2D"]
-collision_layer = 48
+collision_layer = 32
 
 [node name="CollisionShape2DLeft" type="CollisionShape2D" parent="Camera2D/BlockPlayerZone"]
 position = Vector2(-8, 112)
@@ -41,6 +44,11 @@ script = ExtResource("5_nwkw8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/CleanObjectZone"]
 position = Vector2(-28, 104)
 shape = SubResource("RectangleShape2D_pjyj7")
+debug_color = Color(0.964706, 0, 0.490196, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/CleanObjectZone"]
+position = Vector2(-8, 216)
+shape = SubResource("RectangleShape2D_aibj2")
 debug_color = Color(0.964706, 0, 0.490196, 0.419608)
 
 [node name="Level" parent="." instance=ExtResource("5_f83q1")]

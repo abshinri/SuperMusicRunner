@@ -5,6 +5,7 @@ func enter() -> void:
 		transitioned.emit(self, 'PiranhaDance')
 	else:
 		super.enter()
+		sprite_node.current_state = sprite_node.StateEnum.PiranhaGetDown
 		animation_player.play(('Under' if sprite_node.piranha_is_under else 'Ground') + "GetDown")
 		await animation_player.animation_finished
 		sprite_node.piranha_is_under = false

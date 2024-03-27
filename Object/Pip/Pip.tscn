@@ -7,7 +7,7 @@
 size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wore0"]
-size = Vector2(17, 32)
+size = Vector2(17, 30)
 
 [node name="Pip" type="AnimatableBody2D"]
 z_index = 3

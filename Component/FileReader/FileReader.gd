@@ -3,7 +3,7 @@ extends Control
 @export var file_type: Array = ['ogg']
 
 var file_path: String
-var file_reader_loaded
+var _is_file_reader_loaded := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,6 +16,8 @@ func _ready():
 	pass # Replace with function body.
 
 func _get_dropped_filesPath(files):
+	if _is_file_reader_loaded:
+		return
 	# print(files)
 	## 传入的文件格式必须符合数组file_type中的格式
 	if files.size() == 0:
@@ -27,7 +29,7 @@ func _get_dropped_filesPath(files):
 		print('文件格式不符合')
 		return
 	file_path = files[0]
-	
+	_is_file_reader_loaded = true	
 	SignalBank.file_reader_loaded.emit(AudioStreamOggVorbis.load_from_file(file_path))
 	pass
 

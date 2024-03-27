@@ -81,7 +81,7 @@ func _load_and_play(stream:AudioStreamOggVorbis) -> void:
 	_init_music_info(stream)
 	$AudioStreamPlayer.stream = stream
 	SignalBank.game_start.emit()
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1.5).timeout
 	playing = true
 	$AudioStreamPlayer.play()
 	SignalBank.music_player_played.emit()

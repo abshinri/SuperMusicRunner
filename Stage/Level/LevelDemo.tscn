@@ -393,166 +393,178 @@ sources/0 = SubResource("TileSetAtlasSource_3nelb")
 
 [node name="LevelDemo" type="Node2D"]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_7f1lm")
 collision_visibility_mode = 1
 format = 2
 layer_0/name = "ground"
 layer_0/z_index = 1
-layer_0/tile_data = PackedInt32Array(851990, 1, 0, 851989, 1, 0, 851988, 1, 0, 851987, 1, 0, 851986, 1, 0, 851985, 1, 0, 851984, 1, 0, 851983, 1, 0, 851982, 1, 0, 851981, 1, 0, 851980, 1, 0, 851975, 1, 0, 851974, 1, 0, 851973, 1, 0, 851972, 1, 0, 851971, 1, 0, 851970, 1, 0, 851969, 1, 0, 851968, 1, 0, 851976, 1, 0, 851977, 1, 0, 851978, 1, 0, 851979, 1, 0, 786432, 1, 0, 786433, 1, 0, 786434, 1, 0, 786435, 1, 0, 786436, 1, 0, 786437, 1, 0, 786438, 1, 0, 786439, 1, 0, 786440, 1, 0, 786441, 1, 0, 786442, 1, 0, 786443, 1, 0, 786444, 1, 0, 786445, 1, 0, 786446, 1, 0, 786447, 1, 0, 786448, 1, 0, 786449, 1, 0, 786450, 1, 0, 786451, 1, 0, 786452, 1, 0, 786453, 1, 0, 786454, 1, 0, 786455, 1, 0, 851991, 1, 0, 458783, 65537, 1, 524319, 65537, 1, 589855, 65537, 1, 655391, 65537, 1, 720927, 65537, 1, 458784, 65537, 1, 524320, 65537, 1, 589856, 65537, 1, 655392, 65537, 1, 720928, 65537, 1, 458785, 65537, 1, 524321, 65537, 1, 589857, 65537, 1, 655393, 65537, 1, 720929, 65537, 1, 458786, 65537, 1, 524322, 65537, 1, 589858, 65537, 1, 655394, 65537, 1, 720930, 65537, 1, 524324, 65537, 1, 589860, 65537, 1, 655396, 65537, 1, 720932, 65537, 1, 786471, 131073, 1, 786472, 131073, 1, 786473, 131073, 1, 786474, 131073, 1, 786477, 131073, 1, 786478, 131073, 1, 786479, 131073, 1, 786480, 131073, 1, 786483, 131073, 1, 786484, 131073, 1, 786485, 131073, 1, 786498, 131073, 1, 786499, 131073, 1, 786500, 131073, 1, 524371, 131073, 1, 524372, 131073, 1, 524373, 131073, 1, 524374, 131073, 1, 524375, 131073, 1, 524376, 131073, 1, 524377, 131073, 1, 524378, 131073, 1, 524379, 131073, 1, 524380, 131073, 1, 524385, 131073, 1, 524386, 131073, 1, 524391, 1, 2, 524392, 1, 2, 524393, 1, 2, 524394, 1, 2, 589945, 131073, 1, 589946, 131073, 1, 589947, 131073, 1, 589948, 131073, 1, 589949, 131073, 1, 786456, 1, 0, 851992, 1, 0, 458777, 65537, 1, 524313, 65537, 1, 589849, 65537, 1, 655385, 65537, 1, 720921, 65537, 1, 786457, 1, 0, 851993, 1, 0, 458778, 65537, 1, 524314, 65537, 1, 589850, 65537, 1, 655386, 65537, 1, 720922, 65537, 1, 786458, 1, 0, 851994, 1, 0, 262171, 65537, 1, 327707, 65537, 1, 458779, 65537, 1, 524315, 65537, 1, 589851, 65537, 1, 655387, 65537, 1, 720923, 65537, 1, 458780, 65537, 1, 524316, 65537, 1, 589852, 65537, 1, 655388, 65537, 1, 720924, 65537, 1, 458781, 65537, 1, 524317, 65537, 1, 589853, 65537, 1, 655389, 65537, 1, 720925, 65537, 1, 131102, 393216, 0, 196638, 393216, 1, 262174, 65537, 3, 327710, 65537, 3, 458782, 65537, 1, 524318, 65537, 1, 589854, 65537, 1, 655390, 65537, 1, 720926, 65537, 1, 262175, 327680, 1, 327711, 65537, 3, 786465, 131073, 1, 786466, 131073, 1, 786467, 131073, 1, 786468, 131073, 1, 786469, 131073, 1, 786470, 131073, 1, 786481, 131073, 1, 786482, 131073, 1, 786492, 131073, 1, 786493, 131073, 1, 786494, 131073, 1, 786495, 131073, 1, 786496, 131073, 1, 786497, 131073, 1, 524365, 131073, 1, 524366, 131073, 1, 524367, 131073, 1, 524368, 131073, 1, 524369, 131073, 1, 524370, 131073, 1, 524387, 131073, 1, 524388, 131073, 1, 524389, 131073, 1, 524390, 1, 2, 589926, 1, 2, 103, 65537, 1, 65639, 65537, 1, 131175, 65537, 1, 196711, 65537, 1, 262247, 65537, 1, 327783, 65537, 1, 393319, 65537, 1, 458855, 65537, 1, 589927, 1, 2, 655463, 1, 2, 720999, 1, 2, 104, 65537, 1, 65640, 65537, 1, 131176, 65537, 1, 196712, 65537, 1, 262248, 65537, 1, 327784, 65537, 1, 393320, 65537, 1, 589928, 1, 2, 655464, 1, 2, 721000, 1, 2, 105, 65537, 1, 65641, 65537, 1, 131177, 65537, 1, 196713, 65537, 1, 262249, 65537, 1, 327785, 65537, 1, 393321, 65537, 1, 458857, 1, 2, 589929, 1, 2, 655465, 1, 2, 721001, 1, 2, 106, 65537, 1, 65642, 65537, 1, 131178, 65537, 1, 196714, 65537, 1, 262250, 65537, 1, 327786, 65537, 1, 393322, 65537, 1, 458858, 1, 2, 589930, 1, 2, 655466, 1, 2, 721002, 1, 2, 589939, 131073, 1, 589940, 131073, 1, 589941, 131073, 1, 589942, 131073, 1, 589943, 131073, 1, 589944, 131073, 1, 458856, 65537, 1, 393240, 0, 0, 393241, 65536, 0, 393242, 65536, 0, 393243, 65536, 0, 393244, 65536, 0, 393245, 65536, 0, 393246, 65536, 0, 393247, 65536, 0, 393248, 65536, 0, 393249, 65536, 0, 393250, 65536, 0, 393251, 131072, 0, 458787, 196608, 0, 458788, 262144, 0, 458789, 327680, 0, 196634, 0, 0, 196635, 65536, 0, 196636, 131072, 0)
+layer_0/tile_data = PackedInt32Array(851975, 1, 0, 851974, 1, 0, 851973, 1, 0, 851972, 1, 0, 851971, 1, 0, 851970, 1, 0, 851969, 1, 0, 851968, 1, 0, 786432, 1, 0, 786433, 1, 0, 786434, 1, 0, 786435, 1, 0, 786436, 1, 0, 786437, 1, 0, 786438, 1, 0, 786439, 1, 0, 393230, 65536, 0, 393231, 65536, 0, 458767, 65537, 1, 524303, 65537, 1, 589839, 65537, 1, 655375, 65537, 1, 720911, 65537, 1, 196624, 65536, 0, 393232, 65536, 0, 458768, 65537, 1, 524304, 65537, 1, 589840, 65537, 1, 655376, 65537, 1, 720912, 65537, 1, 196625, 131072, 0, 393233, 65536, 0, 458769, 65537, 1, 524305, 65537, 1, 589841, 65537, 1, 655377, 65537, 1, 720913, 65537, 1, 393234, 65536, 0, 458770, 65537, 1, 524306, 65537, 1, 589842, 65537, 1, 655378, 65537, 1, 720914, 65537, 1, 393235, 65536, 0, 458771, 65537, 1, 524307, 65537, 1, 589843, 65537, 1, 655379, 65537, 1, 720915, 65537, 1, 262164, 327680, 1, 327700, 65537, 3, 393236, 65536, 0, 458772, 65537, 1, 524308, 65537, 1, 589844, 65537, 1, 655380, 65537, 1, 720916, 65537, 1, 393237, 65536, 0, 458773, 65537, 1, 524309, 65537, 1, 589845, 65537, 1, 655381, 65537, 1, 720917, 65537, 1, 393238, 65536, 0, 458774, 65537, 1, 524310, 65537, 1, 589846, 65537, 1, 655382, 65537, 1, 720918, 65537, 1, 393239, 65536, 0, 458775, 65537, 1, 524311, 65537, 1, 589847, 65537, 1, 655383, 65537, 1, 720919, 65537, 1, 786455, 131073, 1, 393240, 131072, 0, 458776, 196608, 0, 786456, 131073, 1, 458777, 262144, 0, 786457, 131073, 1, 458778, 327680, 0, 786458, 131073, 1, 786459, 131073, 1, 786460, 131073, 1, 786461, 131073, 1, 786462, 131073, 1, 786463, 131073, 1, 786467, 131073, 1, 786468, 131073, 1, 786469, 131073, 1, 786470, 131073, 1, 786471, 131073, 1, 786472, 131073, 1, 786473, 131073, 1, 786474, 131073, 1, 786482, 131073, 1, 786483, 131073, 1, 786484, 131073, 1, 786485, 131073, 1, 786486, 131073, 1, 786487, 131073, 1, 786488, 131073, 1, 786489, 131073, 1, 524355, 131073, 1, 524356, 131073, 1, 524357, 131073, 1, 524358, 131073, 1, 524359, 131073, 1, 524360, 131073, 1, 524361, 131073, 1, 524362, 131073, 1, 524363, 131073, 1, 524364, 131073, 1, 524365, 131073, 1, 524366, 131073, 1, 524367, 131073, 1, 524368, 131073, 1, 524369, 131073, 1, 524375, 131073, 1, 524376, 131073, 1, 524377, 131073, 1, 524378, 131073, 1, 524379, 1, 2, 524380, 1, 2, 589916, 1, 2, 93, 65537, 1, 65629, 65537, 1, 131165, 65537, 1, 196701, 65537, 1, 262237, 65537, 1, 327773, 65537, 1, 393309, 65537, 1, 458845, 65537, 1, 524381, 1, 2, 589917, 1, 2, 655453, 1, 2, 720989, 1, 2, 94, 65537, 1, 65630, 65537, 1, 131166, 65537, 1, 196702, 65537, 1, 262238, 65537, 1, 327774, 65537, 1, 393310, 65537, 1, 458846, 1, 2, 524382, 1, 2, 589918, 1, 2, 655454, 1, 2, 720990, 1, 2, 95, 65537, 1, 65631, 65537, 1, 131167, 65537, 1, 196703, 65537, 1, 262239, 65537, 1, 327775, 65537, 1, 393311, 65537, 1, 458847, 1, 2, 524383, 1, 2, 589919, 1, 2, 655455, 1, 2, 720991, 1, 2, 589929, 131073, 1, 589930, 131073, 1, 589931, 131073, 1, 589932, 131073, 1, 589933, 131073, 1, 589934, 131073, 1, 589935, 131073, 1, 589936, 131073, 1, 589937, 131073, 1, 589938, 131073, 1, 393229, 0, 0, 458766, 65537, 1, 524302, 65537, 1, 589838, 65537, 1, 655374, 65537, 1, 720910, 65537, 1, 196623, 0, 0, 262160, 65537, 1, 327696, 65537, 1, 131091, 393216, 0, 196627, 393216, 1, 262163, 65537, 3, 327699, 65537, 3, 786454, 131073, 1, 524313, 65537, 1, 589849, 65537, 1, 655385, 65537, 1, 720921, 65537, 1, 786466, 131073, 1, 786481, 131073, 1, 524354, 131073, 1, 524374, 131073, 1, 589915, 1, 2, 92, 65537, 1, 65628, 65537, 1, 131164, 65537, 1, 196700, 65537, 1, 262236, 65537, 1, 327772, 65537, 1, 393308, 65537, 1, 458844, 65537, 1, 655452, 1, 2, 720988, 1, 2, 589928, 131073, 1, 786440, 1, 0, 786441, 1, 0, 786442, 1, 0, 786443, 1, 0, 786444, 1, 0, 786445, 1, 0, 786446, 1, 0, 786447, 1, 0, 851976, 1, 0, 851977, 1, 0, 851978, 1, 0, 851979, 1, 0, 851980, 1, 0, 851981, 1, 0, 851982, 1, 0, 851983, 1, 0)
 layer_1/name = "back"
-layer_1/tile_data = PackedInt32Array(720898, 0, 589824, 720909, 0, 393216, 720913, 0, 655360, 262165, 0, 262144)
+layer_1/tile_data = PackedInt32Array()
 layer_2/name = "front"
 layer_2/z_index = 1
-layer_2/tile_data = PackedInt32Array(327711, 0, 2, 327712, 0, 2, 327713, 0, 2, 327714, 0, 2, 393328, 65537, 3, 327792, 327680, 1, 327710, 0, 2, 327709, 0, 2, 327708, 0, 2)
-
-[node name="Node" type="Node" parent="."]
+layer_2/tile_data = PackedInt32Array(327775, 327680, 1, 393311, 65537, 3, 327696, 0, 2, 327697, 0, 2, 327698, 0, 2, 327699, 0, 2, 327700, 0, 2, 327701, 0, 2)
 
 [node name="QuestionBlock" parent="." instance=ExtResource("10_wxpbt")]
-position = Vector2(104, 135)
+position = Vector2(64, 135)
 
 [node name="BreakableBlock" parent="." instance=ExtResource("11_ppk75")]
-position = Vector2(160, 135)
+position = Vector2(120, 135)
 
 [node name="QuestionBlock2" parent="." instance=ExtResource("10_wxpbt")]
-position = Vector2(176, 135)
+position = Vector2(136, 135)
 type = 2
 
 [node name="BreakableBlock2" parent="." instance=ExtResource("11_ppk75")]
-position = Vector2(192, 135)
+position = Vector2(152, 135)
 
 [node name="QuestionBlock3" parent="." instance=ExtResource("10_wxpbt")]
-position = Vector2(208, 135)
+position = Vector2(168, 135)
 
 [node name="BreakableBlock3" parent="." instance=ExtResource("11_ppk75")]
-position = Vector2(224, 135)
-
-[node name="BreakableBlock4" parent="." instance=ExtResource("11_ppk75")]
-position = Vector2(352, 151)
-
-[node name="BreakableBlock5" parent="." instance=ExtResource("11_ppk75")]
-position = Vector2(336, 151)
+position = Vector2(184, 135)
 
 [node name="QuestionBlock4" parent="." instance=ExtResource("10_wxpbt")]
-position = Vector2(192, 71)
+position = Vector2(152, 71)
 coin_number = 4
 
 [node name="QuestionBlock5" parent="." instance=ExtResource("10_wxpbt")]
-position = Vector2(584, 64)
+position = Vector2(408, 64)
 coin_number = 8
 
 [node name="Goomba2" parent="." instance=ExtResource("12_jctye")]
-position = Vector2(153, 184)
+position = Vector2(145, 184)
 direction = 1
 
 [node name="Koopa" parent="." instance=ExtResource("14_mwx2u")]
-position = Vector2(247, 180)
+position = Vector2(208, 181)
 
 [node name="Cloud" parent="." instance=ExtResource("2_nmyru")]
-position = Vector2(264, 56)
+position = Vector2(184, 56)
 
 [node name="Hill2" parent="." instance=ExtResource("8_k8t3d")]
 position = Vector2(52, 181)
 metadata/_edit_lock_ = true
 
 [node name="Pip3" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(440, 200)
+position = Vector2(264, 200)
 
 [node name="Pip4" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(472, 200)
+position = Vector2(296, 200)
 
 [node name="Pip5" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(504, 200)
+position = Vector2(328, 200)
 
 [node name="Pip6" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(696, 200)
+position = Vector2(520, 200)
 
 [node name="Pip7" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(648, 24)
+position = Vector2(472, 24)
 rotation = 3.14159
 
 [node name="Pip8" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(680, 40)
+position = Vector2(504, -8)
 rotation = 3.14159
 pip_height = 2
 
 [node name="Pip9" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(712, 56)
+position = Vector2(536, -8)
 rotation = 3.14159
 pip_height = 3
 
 [node name="Pip10" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(744, 71)
+position = Vector2(568, -8)
 rotation = 3.14159
 pip_height = 4
 
 [node name="Pip11" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(776, 24)
+position = Vector2(600, 24)
 rotation = 3.14159
 
 [node name="Pip12" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(872, 200)
+position = Vector2(696, 200)
 
 [node name="Pip13" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(904, 200)
+position = Vector2(728, 200)
 
 [node name="Pip14" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(936, 200)
+position = Vector2(760, 200)
 
 [node name="Pip15" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(1112, 159)
+position = Vector2(936, 159)
 
 [node name="Pip16" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(1144, 159)
+position = Vector2(968, 159)
 
 [node name="Pip17" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(1184, 128)
+position = Vector2(1008, 128)
 scale = Vector2(2, 2)
 pip_height = 3
 
 [node name="Pip18" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(1504, 144)
+position = Vector2(1328, 144)
 scale = Vector2(2, 2)
 pip_height = 3
 
 [node name="Pip20" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(1760, 88)
+position = Vector2(1584, 88)
 scale = Vector2(2, 2)
 pip_height = 3
 
 [node name="Pip19" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(1720, 48)
+position = Vector2(1544, 48)
 pip_height = 6
 
 [node name="Pip21" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(1816, 57)
+position = Vector2(1640, 57)
 pip_height = 5
 
 [node name="Pip22" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(2024, 152)
+position = Vector2(1848, 152)
 
 [node name="Pip23" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(2056, 120)
+position = Vector2(1880, 120)
 
 [node name="Pip24" parent="." instance=ExtResource("9_5c0vp")]
-position = Vector2(2096, 88)
+position = Vector2(1920, 88)
 scale = Vector2(2, 2)
 
 [node name="UnbreakableBlock" parent="." instance=ExtResource("10_kxsbh")]
-position = Vector2(1672, 120)
+position = Vector2(1496, 120)
 type = 3
 
 [node name="Coin" parent="." instance=ExtResource("11_f1ujd")]
-position = Vector2(396, 88)
+position = Vector2(220, 88)
 
 [node name="Coin2" parent="." instance=ExtResource("11_f1ujd")]
-position = Vector2(416, 88)
+position = Vector2(240, 88)
 
 [node name="Coin3" parent="." instance=ExtResource("11_f1ujd")]
-position = Vector2(436, 88)
+position = Vector2(260, 88)
+
+[node name="Coin6" parent="." instance=ExtResource("11_f1ujd")]
+position = Vector2(396, 184)
+
+[node name="Coin7" parent="." instance=ExtResource("11_f1ujd")]
+position = Vector2(412, 167)
+
+[node name="Coin8" parent="." instance=ExtResource("11_f1ujd")]
+position = Vector2(428, 184)
+
+[node name="Coin9" parent="." instance=ExtResource("11_f1ujd")]
+position = Vector2(444, 167)
+
+[node name="Coin10" parent="." instance=ExtResource("11_f1ujd")]
+position = Vector2(460, 184)
+
+[node name="Coin11" parent="." instance=ExtResource("11_f1ujd")]
+position = Vector2(476, 167)
 
 [node name="Coin4" parent="." instance=ExtResource("11_f1ujd")]
-position = Vector2(440, 40)
+position = Vector2(264, 40)
 
 [node name="Coin5" parent="." instance=ExtResource("11_f1ujd")]
-position = Vector2(584, 104)
+position = Vector2(408, 104)

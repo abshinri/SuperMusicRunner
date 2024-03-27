@@ -8,6 +8,7 @@ class_name MoveableObject extends CharacterBody2D
 
 var _debug_name = preload ("res://Component/Debug/ObjectName/ObjectName.tscn")
 const dance_shader = preload ("res://Shader/Swing.gdshader")
+const flying_notes = preload ("res://Object/FlyingNotes/FlyingNotes.tscn")
 enum ObjectType {
 	ITEM, ENEMY
 }
@@ -17,7 +18,6 @@ var can_dance := false
 var state
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print('MoveableObject_ready')
 	SignalBank.start_dance.connect(_on_start_dance)
 	add_child(_debug_name.instantiate())
 	if object_type == ObjectType.ITEM:
@@ -92,7 +92,9 @@ func die(_stop:=false) -> void:
 
 func _on_start_dance() -> void:
 	if can_dance:
-		get_node('Sprite2D').material = ShaderMaterial.new()
-		get_node('Sprite2D').material.shader = dance_shader
-		get_node('Sprite2D').material.set_shader_parameter('strength', 2.)
-		get_node('Sprite2D').material.set_shader_parameter('speed', 3.)
+		var sprite2D = get_node('Sprite2D')
+		sprite2D.material = ShaderMaterial.new()
+		sprite2D.material.shader = dance_shader
+		sprite2D.material.set_shader_parameter('strength', 2.)
+		sprite2D.material.set_shader_parameter('speed', 3.)
+		sprite2D.add_child(flying_notes.instantiate())
