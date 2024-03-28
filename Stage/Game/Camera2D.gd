@@ -3,16 +3,23 @@ extends Camera2D
 var level_start = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	SignalBank.game_start.connect(func():level_start = true)
+	SignalBank.game_start.connect(func(): level_start=true)
 	SignalBank.music_player_played.connect(_start_level)
 	
 	pass # Replace with function body.
-var rolling_length = 1960 - 384
+
+var first_stop_length = 640 - 384
+var rolling_length = 1960 - 376
+var _current_stop = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if level_start:
-		self.position.x += 35 * delta
-		if self.position.x >= rolling_length:
+		self.position.x += 36 * delta
+		if (self.position.x >= first_stop_length) and _current_stop == 0:
+			self.position.x = first_stop_length
+			level_start = false
+			_current_stop = 1
+		if (self.position.x >= rolling_length) and _current_stop == 1:
 			self.position.x = rolling_length
 			level_start = false
 	pass

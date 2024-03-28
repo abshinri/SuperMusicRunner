@@ -20,7 +20,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3vf2v"]
 shader = ExtResource("2_ddko7")
 shader_parameter/strength = 0.0
-shader_parameter/speed = 5.8
+shader_parameter/speed = 3.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o76oy"]
 size = Vector2(10, 15)

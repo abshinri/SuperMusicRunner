@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://boc85dsbbxxvs"]
 
 [ext_resource type="Script" path="res://Script/Object/BackgroundObject.gd" id="1_5yht1"]
-[ext_resource type="Texture2D" uid="uid://c00ji5luryqlc" path="res://Asset/Object/Grass3.png" id="1_rcehe"]
+[ext_resource type="Texture2D" uid="uid://2ee4x8kju4od" path="res://Asset/Object/Grass1.png" id="2_flq7m"]
 
-[node name="Grass3" type="Node2D"]
+[node name="Grass1" type="Node2D"]
 script = ExtResource("1_5yht1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_rcehe")
+texture = ExtResource("2_flq7m")

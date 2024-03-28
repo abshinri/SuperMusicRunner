@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bnqh0xrbf80ky"]
+[gd_scene load_steps=21 format=3 uid="uid://bnqh0xrbf80ky"]
 
 [ext_resource type="Texture2D" uid="uid://bs71fkcfovuac" path="res://Asset/Character/piranha_sheet.png" id="1_cs836"]
 [ext_resource type="Script" path="res://Character/Piranha/Piranha.gd" id="1_dpuyq"]
@@ -10,6 +10,19 @@
 [ext_resource type="Script" path="res://Character/Piranha/StateMechine/PiranhaGetDown.gd" id="6_y73gt"]
 [ext_resource type="Script" path="res://Character/Piranha/StateMechine/PiranhaGetUp.gd" id="7_fpy72"]
 [ext_resource type="Script" path="res://Character/Piranha/StateMechine/PiranhaDance.gd" id="8_gtjyv"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_17xjw"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, 12, 0)
+direction = Vector3(0, -100, 0)
+spread = 79.382
+initial_velocity_min = 4.0
+initial_velocity_max = 16.0
+gravity = Vector3(0, -20, 0)
+linear_accel_min = 9.0
+linear_accel_max = 35.96
+scale_min = 2.0
+scale_max = 4.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejjev"]
 size = Vector2(16, 24)
@@ -539,10 +552,12 @@ _data = {
 }
 
 [node name="Piranha" type="CharacterBody2D"]
-z_index = 9
+z_index = 8
 collision_layer = 64
-collision_mask = 16
+collision_mask = 0
 script = ExtResource("1_dpuyq")
+move_speed = 40.0
+direction = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 4)
@@ -554,6 +569,18 @@ region_rect = Rect2(32, 0, 32, 32)
 [node name="FlyingNotes" parent="Sprite2D" instance=ExtResource("3_qu5sm")]
 position = Vector2(0, -17)
 emitting = false
+
+[node name="FlyingDust" parent="Sprite2D" instance=ExtResource("3_qu5sm")]
+modulate = Color(1, 1, 1, 0.745098)
+material = null
+position = Vector2(0, -17)
+emitting = false
+amount = 8
+process_material = SubResource("ParticleProcessMaterial_17xjw")
+texture = null
+lifetime = 0.4
+randomness = 0.29
+fixed_fps = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -12)

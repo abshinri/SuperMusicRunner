@@ -7,7 +7,7 @@ const MIN_DB = 60
 const ANIMATION_SPEED = 0.1
 const HEIGHT_SCALE = 8.0
 
-@onready var color_rect = $ColorRect
+#@onready var color_rect = $ColorRect
 
 var spectrum
 var min_values = []
@@ -81,7 +81,7 @@ func _load_and_play(stream:AudioStreamOggVorbis) -> void:
 	_init_music_info(stream)
 	$AudioStreamPlayer.stream = stream
 	SignalBank.game_start.emit()
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(Global.play_delay).timeout
 	playing = true
 	$AudioStreamPlayer.play()
 	SignalBank.music_player_played.emit()

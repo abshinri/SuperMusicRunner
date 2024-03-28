@@ -3,7 +3,8 @@ extends Node
 var file_reader_loaded_list := []
 
 # MusicPlayer
-var current_track := - 1
+var play_delay := 1.8
+var show_delay := 0
 
 # Object Global.is_enemy()
 func is_enemy(body : Node2D) -> bool:

@@ -12,8 +12,8 @@ func _process(_delta: float) -> void:
 	
 func _physics_process(_delta: float) -> void:
 	super._physics_process(_delta)
-	_on_child_transition(current_state, get_state_name_by_enum(sprite_node.current_state))
-	print(current_state, get_state_name_by_enum(sprite_node.current_state))
+	# _on_child_transition(current_state, get_state_name_by_enum(sprite_node.current_state))
+	# print(current_state, get_state_name_by_enum(sprite_node.current_state))
 	
 func get_state_name_by_enum(state:int) -> String:
 	match state:
