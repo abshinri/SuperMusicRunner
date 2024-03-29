@@ -1,6 +1,6 @@
 class_name Pip extends StaticObject
 
-enum Type {EMPTY, ITEM, ENEMY}
+enum Type {EMPTY, ITEM, ENEMY, FAKE}
 
 @export var type: Type = Type.EMPTY
 @export var item: String = ""
@@ -25,10 +25,14 @@ func _ready() -> void:
 		
 		$CrashZone/CollisionShape2D.position.y += add_num * 8
 		$CollisionShape2D.position.y += add_num * 8
-	
-	if scale.x > 1:
-		$CrashZone/CollisionShape2D.apply_scale(Vector2((1 / scale.x), 1))
-		$CrashZone/CollisionShape2D.position.x += ($CrashZone/CollisionShape2D.shape.get_rect().size.x / 4)
+		
+	if type != Type.FAKE:
+		if scale.x > 1:
+			$CrashZone/CollisionShape2D.apply_scale(Vector2((1 / scale.x), 1))
+			$CrashZone/CollisionShape2D.position.x += ($CrashZone/CollisionShape2D.shape.get_rect().size.x / 4)
+	else:
+		$CollisionShape2D.disabled = true
+		$CrashZone/CollisionShape2D.disabled = true
 	pass # Replace with function body.
 
 func _physics_process(_delta: float) -> void:

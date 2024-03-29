@@ -42,7 +42,7 @@ enum StateEnum {PiranhaDefault, PiranhaWalk, PiranhaGetDown, PiranhaGetUp, Piran
 ## 重力
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_on_wall_cool_down = false
-var just_stop_h = false
+
 var _upsidedown = 1
 func _ready() -> void:
 	SignalBank.start_dance.connect(Callable(self, '_on_start_dance'))
@@ -51,7 +51,7 @@ func _ready() -> void:
 		_upsidedown = -1
 
 func _physics_process(_delta):
-	if(just_stop_h or piranha_is_under):
+	if piranha_is_under or current_state == StateEnum.PiranhaDance or current_state == StateEnum.PiranhaGetDown or current_state == StateEnum.PiranhaGetUp:
 		velocity.x = 0
 	if velocity.x < 0:
 		$Sprite2D.flip_h = true
@@ -71,15 +71,14 @@ func _on_start_dance() -> void:
 	flying_notes_emitter = true
 
 func back_to_pip() -> void:
-	just_stop_h = true
-	var direction = -1 if !upsidedown else 1
+	var upsidedown_direction = -1 if !upsidedown else 1
 	current_state = StateEnum.PiranhaGetDown
-	piranha_is_under = true
 	await get_tree().create_timer(0.7).timeout
+	piranha_is_under = true
 	current_state = StateEnum.PiranhaDefault
 	invisible = true
 	var tween = create_tween()
-	tween.tween_property(self, "position", position + Vector2(0, -32 * direction), .1)
+	tween.tween_property(self, "position", position + Vector2(0, -32 * upsidedown_direction), .1)
 	await tween.finished
 	alive = false
 

@@ -14,7 +14,7 @@ var _current_stop = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if level_start:
-		self.position.x += 36 * delta
+		self.position.x += 40 * delta
 		if (self.position.x >= first_stop_length) and _current_stop == 0:
 			self.position.x = first_stop_length
 			level_start = false

@@ -14,3 +14,4 @@ signal stop_se(se)
 # Stage
 signal start_dance()
 signal game_start()
+signal game_over()

@@ -25,6 +25,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 const dance_shader = preload ("res://Shader/Swing.gdshader")
 
 var player_state := Enum.PlayerState.SMALL
+var game_state := 'gaming' # or victory
 var player_is_squat := false
 
 @onready var jump_buff_detector := $JumpBuffDetector as RayCast2D
@@ -60,10 +61,15 @@ func _physics_process(_delta):
 		
 	direction = Input.get_axis("move_left", "move_right")
 	velocity.y += gravity * _delta
+	
+	if game_state == 'victory':
+		velocity.x = 0
+	
 	if velocity.x < 0:
 		$Sprite2D.flip_h = true
 	elif velocity.x > 0:
 		$Sprite2D.flip_h = false
+	
 		
 	move_and_slide()
 
@@ -73,6 +79,11 @@ func hurt() -> void:
 		die()
 	elif player_state == Enum.PlayerState.BIG:
 		grow_down()
+	pass
+
+
+func victory() -> void:
+	game_state = 'victory()'
 	pass
 
 func die() -> void:

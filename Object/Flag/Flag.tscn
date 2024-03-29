@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvpqvkisl63xg"]
+
+[ext_resource type="Texture2D" uid="uid://ca62dxhusf0wm" path="res://Asset/Object/flag.png" id="1_o8w3o"]
+[ext_resource type="Script" path="res://Object/Flag/Flag.gd" id="2_ipods"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u203s"]
+size = Vector2(20, 60)
+
+[node name="Flag" type="Sprite2D"]
+texture = ExtResource("1_o8w3o")
+script = ExtResource("2_ipods")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_u203s")
+
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

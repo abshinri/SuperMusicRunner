@@ -19,7 +19,7 @@ var state
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBank.start_dance.connect(_on_start_dance)
-	add_child(_debug_name.instantiate())
+	#add_child(_debug_name.instantiate())
 	if object_type == ObjectType.ITEM:
 		state = Enum.ItemState.WALKING
 	else:

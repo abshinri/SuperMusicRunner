@@ -14,5 +14,5 @@ func enter() -> void:
 func physics_update(_delta) -> void:
 	super.physics_update(_delta)
 
-	if !sprite_node.piranha_is_under or sprite_node.just_stop_h:
+	if !sprite_node.piranha_is_under:
 		sprite_node.velocity.x = sprite_node.move_speed * sprite_node.direction

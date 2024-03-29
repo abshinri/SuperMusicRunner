@@ -28,19 +28,16 @@ var SEDict = {
 func _ready():
 	SignalBank.play_se.connect(Callable(self, '_play_se'))
 	pass # Replace with func
-
+var se = AudioStreamPlayer.new()
 func _play_se(type):
-
-	var se = AudioStreamPlayer.new()
-
 	se.stream = SEDict[type]
 	
 	add_child(se)
 	se.play()
 		
-	await se.finished
-	se.queue_free()
-	pass
+	#await se.finished
+	#se.queue_free()
+	#pass
 
 
 # func _play_se(type, loop: bool, _callback: Callable):

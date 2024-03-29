@@ -8,6 +8,7 @@ func enter() -> void:
 	sprite_node.set_collision_layer_value(2, false)
 	sprite_node.set_physics_process(false)
 	await animation_player.animation_finished
+	SignalBank.game_over.emit()
 	sprite_node.queue_free()
 	
 func physics_update(_delta) -> void:

@@ -15,6 +15,8 @@ func update(_delta: float):
 	
 func physics_update(_delta: float):
 	if sprite_node is Player:
+		if sprite_node.game_state == 'victory':
+			transitioned.emit(self, 'PlayerVictory')
 		if sprite_node.player_state == Enum.PlayerState.DEAD:
 			transitioned.emit(self, 'PlayerDead')		
 		if sprite_node.player_state == Enum.PlayerState.GROWING:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://ixorcbktqxj5"]
+[gd_scene load_steps=37 format=3 uid="uid://ixorcbktqxj5"]
 
 [ext_resource type="Script" path="res://Character/Player/Player.gd" id="1_7jlo0"]
 [ext_resource type="Texture2D" uid="uid://3qmss8adqcvb" path="res://Asset/Character/mario_sheet.png" id="1_k6hj8"]
@@ -16,7 +16,6 @@
 [ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerStop.gd" id="9_0yr47"]
 [ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerDead.gd" id="10_q1lbe"]
 [ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerGrowDown.gd" id="13_am4ec"]
-[ext_resource type="Script" path="res://Character/Player/StateMechine/PlayerVictory.gd" id="17_ny258"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3vf2v"]
 shader = ExtResource("2_ddko7")
@@ -27,7 +26,7 @@ shader_parameter/speed = 3.0
 size = Vector2(10, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejjev"]
-size = Vector2(10, 15)
+size = Vector2(10, 30)
 
 [sub_resource type="Animation" id="Animation_crgdg"]
 resource_name = "BigIdle"
@@ -375,83 +374,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -8)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape2D:shape:size")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(10, 30)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CollisionShape2D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -15)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CollisionShape2D:shape")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [SubResource("RectangleShape2D_ejjev")]
-}
-
-[sub_resource type="Animation" id="Animation_xcnye"]
-resource_name = "BigVictory"
-length = 0.1
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(178, 52, 16, 32)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -16)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -1131,71 +1053,6 @@ tracks/4/keys = {
 "values": [Vector2(0, -7.5)]
 }
 
-[sub_resource type="Animation" id="Animation_4yu3m"]
-resource_name = "SmallVictory"
-length = 0.1
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(164, 16, 14, 16)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -8)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape2D:shape")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("RectangleShape2D_m4vyt")]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape2D:shape:size")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(10, 15)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CollisionShape2D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -7.5)]
-}
-
 [sub_resource type="Animation" id="Animation_m3kqg"]
 resource_name = "walk"
 length = 0.6
@@ -1268,7 +1125,6 @@ _data = {
 "BigRun": SubResource("Animation_sjy2k"),
 "BigSquat": SubResource("Animation_s7oi2"),
 "BigStop": SubResource("Animation_uco24"),
-"BigVictory": SubResource("Animation_xcnye"),
 "BigWalk": SubResource("Animation_wca8a"),
 "Dead": SubResource("Animation_hbg65"),
 "GrowDown": SubResource("Animation_0qs48"),
@@ -1278,7 +1134,6 @@ _data = {
 "SmallJump": SubResource("Animation_s2l31"),
 "SmallRun": SubResource("Animation_mufg4"),
 "SmallStop": SubResource("Animation_782ov"),
-"SmallVictory": SubResource("Animation_4yu3m"),
 "SmallWalk": SubResource("Animation_m3kqg")
 }
 
@@ -1311,7 +1166,6 @@ libraries = {
 }
 
 [node name="StateWatcher" parent="." node_paths=PackedStringArray("state_mechine_node", "sprite_node") instance=ExtResource("4_jbsxx")]
-visible = false
 position = Vector2(0, 8)
 state_mechine_node = NodePath("../PlayerStateMechine")
 sprite_node = NodePath("..")
@@ -1349,9 +1203,6 @@ script = ExtResource("4_glihs")
 
 [node name="PlayerGrowDown" type="Node" parent="PlayerStateMechine"]
 script = ExtResource("13_am4ec")
-
-[node name="PlayerVictory" type="Node" parent="PlayerStateMechine"]
-script = ExtResource("17_ny258")
 
 [node name="JumpBuffDetector" type="RayCast2D" parent="."]
 target_position = Vector2(0, 32)
