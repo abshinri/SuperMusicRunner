@@ -1,3 +1,6 @@
+AnimatedSprite2D
+GPUParticles2D
+AudioStreamPlayer
 Node
 CollisionShape2D
 Area2D
@@ -7,8 +10,6 @@ ColorRect
 CanvasModulate
 Node2D
 Control
-AudioStreamPlayer
 AnimationPlayer
-GPUParticles2D
 Camera2D
 PhantomCameraHost

@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4clxc7oglyeu"]
+[gd_scene load_steps=11 format=3 uid="uid://c4clxc7oglyeu"]
 
 [ext_resource type="Script" path="res://Stage/Game/Game.gd" id="1_g226i"]
 [ext_resource type="Script" path="res://Stage/Game/Camera2D.gd" id="3_1um1p"]
 [ext_resource type="PackedScene" uid="uid://ixorcbktqxj5" path="res://Character/Player/Player.tscn" id="3_u0qny"]
 [ext_resource type="PackedScene" uid="uid://t6snbu0q2eal" path="res://Stage/Level/Level.tscn" id="5_f83q1"]
 [ext_resource type="Script" path="res://Stage/Game/CleanObjectZone.gd" id="5_nwkw8"]
+[ext_resource type="Script" path="res://Stage/Game/Restart.gd" id="5_ppamu"]
+[ext_resource type="Texture2D" uid="uid://cnpqm860e1gpq" path="res://Asset/Object/title.png" id="7_nny7j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovuos"]
 size = Vector2(16, 224)
@@ -51,7 +53,52 @@ position = Vector2(-32, 440)
 shape = SubResource("RectangleShape2D_aibj2")
 debug_color = Color(0.964706, 0, 0.490196, 0.419608)
 
+[node name="Restart" type="Control" parent="Camera2D"]
+z_index = 20
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 384.0
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_ppamu")
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/Restart"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Label" type="Label" parent="Camera2D/Restart"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -11.5
+offset_right = 34.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart ?"
+
 [node name="Level" parent="." instance=ExtResource("5_f83q1")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
+max_polyphony = 8
+bus = &"Effect"
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(104, 56)
+texture = ExtResource("7_nny7j")
 
 [connection signal="area_entered" from="Camera2D/CleanObjectZone" to="Camera2D/CleanObjectZone" method="_on_area_entered"]
 [connection signal="area_shape_entered" from="Camera2D/CleanObjectZone" to="Camera2D/CleanObjectZone" method="_on_area_shape_entered"]

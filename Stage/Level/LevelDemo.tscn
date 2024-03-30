@@ -1107,7 +1107,7 @@ tracks/89/path = NodePath("Piranha25:position")
 tracks/89/interp = 1
 tracks/89/loop_wrap = true
 tracks/89/keys = {
-"times": PackedFloat32Array(40.4, 42, 42.1),
+"times": PackedFloat32Array(40.4, 41.8, 42.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1736, -64), Vector2(1736, -64), Vector2(1736, 38)]
@@ -1131,7 +1131,7 @@ tracks/91/path = NodePath("Piranha26:position")
 tracks/91/interp = 1
 tracks/91/loop_wrap = true
 tracks/91/keys = {
-"times": PackedFloat32Array(40.4, 42, 42.1),
+"times": PackedFloat32Array(40.4, 41.8, 42.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1776, -48), Vector2(1776, -48), Vector2(1776, 54)]
@@ -1155,7 +1155,7 @@ tracks/93/path = NodePath("Piranha27:position")
 tracks/93/interp = 1
 tracks/93/loop_wrap = true
 tracks/93/keys = {
-"times": PackedFloat32Array(40.4, 42, 42.1),
+"times": PackedFloat32Array(40.4, 41.8, 42.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1816, -64), Vector2(1816, -64), Vector2(1816, 38)]
@@ -3093,7 +3093,7 @@ position = Vector2(168, 135)
 position = Vector2(184, 135)
 
 [node name="QuestionBlock4" parent="." instance=ExtResource("10_wxpbt")]
-position = Vector2(152, 71)
+position = Vector2(152, 80)
 coin_number = 4
 
 [node name="QuestionBlock5" parent="." instance=ExtResource("10_wxpbt")]
@@ -3196,16 +3196,16 @@ pip_height = 5
 
 [node name="Pip22" parent="." instance=ExtResource("9_5c0vp")]
 position = Vector2(1848, 72)
-pip_height = 6
+pip_height = 10
 
 [node name="Pip23" parent="." instance=ExtResource("9_5c0vp")]
 position = Vector2(1880, 48)
-pip_height = 7
+pip_height = 11
 
 [node name="Pip24" parent="." instance=ExtResource("9_5c0vp")]
 position = Vector2(1920, 24)
 scale = Vector2(2, 2)
-pip_height = 5
+pip_height = 9
 
 [node name="UnbreakableBlock" parent="." instance=ExtResource("10_kxsbh")]
 position = Vector2(1496, 120)
@@ -3286,6 +3286,9 @@ position = Vector2(800, 72)
 
 [node name="BreakableBlock4" parent="." instance=ExtResource("11_ppk75")]
 position = Vector2(824, 136)
+
+[node name="BreakableBlock5" parent="." instance=ExtResource("11_ppk75")]
+position = Vector2(792, 136)
 
 [node name="QuestionBlock6" parent="." instance=ExtResource("10_wxpbt")]
 position = Vector2(808, 136)

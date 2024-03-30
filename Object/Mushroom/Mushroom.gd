@@ -20,5 +20,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		if body.player_state == Enum.PlayerState.SMALL:
 			body.grow_up()
+		else:
+			SignalBank.play_se.emit('Coin')
 		queue_free()
 	pass # Replace with function body.

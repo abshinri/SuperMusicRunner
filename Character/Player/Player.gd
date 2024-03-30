@@ -63,7 +63,7 @@ func _physics_process(_delta):
 	velocity.y += gravity * _delta
 	
 	if game_state == 'victory':
-		velocity.x = 0
+		velocity = Vector2.ZERO
 	
 	if velocity.x < 0:
 		$Sprite2D.flip_h = true

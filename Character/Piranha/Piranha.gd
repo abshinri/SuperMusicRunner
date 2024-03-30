@@ -46,6 +46,8 @@ var is_on_wall_cool_down = false
 var _upsidedown = 1
 func _ready() -> void:
 	SignalBank.start_dance.connect(Callable(self, '_on_start_dance'))
+	$Sprite2D/FlyingNotes.process_material.scale_max=scale.x
+	$Sprite2D/FlyingNotes.process_material.scale_min=scale.x
 	if upsidedown:
 		$Sprite2D.flip_v = true
 		_upsidedown = -1

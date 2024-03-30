@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bnqh0xrbf80ky"]
+[gd_scene load_steps=22 format=3 uid="uid://bnqh0xrbf80ky"]
 
 [ext_resource type="Texture2D" uid="uid://bs71fkcfovuac" path="res://Asset/Character/piranha_sheet.png" id="1_cs836"]
 [ext_resource type="Script" path="res://Character/Piranha/Piranha.gd" id="1_dpuyq"]
@@ -10,6 +10,16 @@
 [ext_resource type="Script" path="res://Character/Piranha/StateMechine/PiranhaGetDown.gd" id="6_y73gt"]
 [ext_resource type="Script" path="res://Character/Piranha/StateMechine/PiranhaGetUp.gd" id="7_fpy72"]
 [ext_resource type="Script" path="res://Character/Piranha/StateMechine/PiranhaDance.gd" id="8_gtjyv"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uqmhy"]
+particle_flag_disable_z = true
+angle_min = -16.2
+angle_max = 16.2
+direction = Vector3(1, -20, 0)
+spread = 26.798
+initial_velocity_min = 33.71
+initial_velocity_max = 67.41
+gravity = Vector3(0, 98, 0)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_17xjw"]
 particle_flag_disable_z = true
@@ -569,6 +579,7 @@ region_rect = Rect2(32, 0, 32, 32)
 [node name="FlyingNotes" parent="Sprite2D" instance=ExtResource("3_qu5sm")]
 position = Vector2(0, -17)
 emitting = false
+process_material = SubResource("ParticleProcessMaterial_uqmhy")
 
 [node name="FlyingDust" parent="Sprite2D" instance=ExtResource("3_qu5sm")]
 modulate = Color(1, 1, 1, 0.745098)

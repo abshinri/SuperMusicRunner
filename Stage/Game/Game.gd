@@ -23,22 +23,37 @@ var SEDict = {
 	'Thwomp': load("res://Asset/Audio/Thwomp.wav"),
 	'Vine': load("res://Asset/Audio/Vine.wav"),
 	'Warp': load("res://Asset/Audio/Warp.wav"),
+	'StageClear': load("res://Asset/Audio/StageClear.wav"),
+	'Confetti': load("res://Asset/Audio/Confetti.mp3"),
 }
 
 func _ready():
 	SignalBank.play_se.connect(Callable(self, '_play_se'))
 	pass # Replace with func
-var se = AudioStreamPlayer.new()
-func _play_se(type):
-	se.stream = SEDict[type]
-	
-	add_child(se)
-	se.play()
-		
-	#await se.finished
-	#se.queue_free()
-	#pass
 
+var fx_limit = 5
+var fx = []
+@onready var se = $AudioStreamPlayer
+
+func _play_se(type):
+	print(type)
+	var _se: AudioStreamPlayer
+	if fx.size() < fx_limit:
+		_se = se.duplicate()
+		fx.append(_se)
+		add_child(_se)
+	else:
+		if fx[0] == null:
+			fx[0] = se.duplicate()
+		_se = fx[0]
+		
+	_se.stream = SEDict[type]
+	_se.play()
+		
+	await _se.finished
+	_se.queue_free()
+	fx.pop_front()
+	#pass
 
 # func _play_se(type, loop: bool, _callback: Callable):
 

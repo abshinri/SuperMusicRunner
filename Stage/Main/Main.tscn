@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0cflngcn6uur"]
+[gd_scene load_steps=4 format=3 uid="uid://c0cflngcn6uur"]
 
 [ext_resource type="PackedScene" uid="uid://x8g6e68mpoln" path="res://Component/FileReader/FileReader.tscn" id="1_mgl8a"]
 [ext_resource type="PackedScene" uid="uid://pva8a35gqq6u" path="res://Component/MusicPlayer/MusicPlayer.tscn" id="2_3v2ig"]
 [ext_resource type="PackedScene" uid="uid://c4clxc7oglyeu" path="res://Stage/Game/Game.tscn" id="3_x8gc7"]
-[ext_resource type="Script" path="res://Stage/Main/Restart.gd" id="4_ac8gi"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -35,37 +34,3 @@ offset_bottom = 324.0
 layout_mode = 1
 
 [node name="Game" parent="." instance=ExtResource("3_x8gc7")]
-
-[node name="Restart" type="Control" parent="."]
-z_index = 15
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("4_ac8gi")
-
-[node name="ColorRect" type="ColorRect" parent="Restart"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.392157)
-
-[node name="Label" type="Label" parent="Restart"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -34.0
-offset_top = -11.5
-offset_right = 34.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Restart ?"
