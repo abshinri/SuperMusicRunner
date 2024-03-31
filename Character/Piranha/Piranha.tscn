@@ -629,3 +629,11 @@ script = ExtResource("7_fpy72")
 
 [node name="PiranhaDance" type="Node" parent="PiranhaStateMechine"]
 script = ExtResource("8_gtjyv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_ejjev")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

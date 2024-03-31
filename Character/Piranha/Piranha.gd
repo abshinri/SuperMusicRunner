@@ -98,3 +98,8 @@ func get_state_name_by_enum(state: int) -> String:
 			return "PiranhaDance"
 		_:
 			return "PiranhaDefault"
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Player:
+		body.hurt()

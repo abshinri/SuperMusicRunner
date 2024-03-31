@@ -9,9 +9,9 @@ func enter() -> void:
 	SignalBank.play_se.emit('Powerup')
 	animation_player.play("GrowUp")
 	
-	await animation_player.animation_finished
-	_freeze = false
+	await get_tree().create_timer(0.6).timeout
 	sprite_node.set_physics_process(true)
+	_freeze = false
 	transitioned.emit(self, 'PlayerIdle')
 
 func exit() -> void:

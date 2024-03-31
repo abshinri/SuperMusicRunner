@@ -15,3 +15,7 @@ res://Object/Mushroom/Mushroom.tscn
 res://Character/Piranha/Piranha.tscn
 res://Object/Koopa/Koopa.tscn
 res://Object/Koopa/Koopa.gd
+res://Character/Player/StateMechine/PlayerGrowUp.gd
+res://Stage/Game/Restart.gd
+res://Stage/Level/LevelDemo.gd
+res://Character/Piranha/Piranha.gd
