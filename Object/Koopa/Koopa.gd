@@ -25,9 +25,14 @@ func _on_packed_area_2d_body_entered(body: Node2D) -> void:
 	if state == Enum.EnemyState.DEAD:
 		return
 	if body.name == "Player" and body.global_position.y< global_position.y-4:
+		$Area2D/CollisionShape2D2.set_deferred("disabled", true)
+		$CollisionShape2D.set_deferred("disabled", true)
+		$PackedArea2D/CollisionShape2D.set_deferred("disabled", true)
 		state = Enum.EnemyState.DEAD
 		# 关闭碰撞
-		$CollisionShape2D.disabled = true
-		$PackedArea2D/CollisionShape2D.disabled = true
 		body.velocity.y = -120
 		packed()
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	handle_area_collision(body)
+	pass # Replace with function body.

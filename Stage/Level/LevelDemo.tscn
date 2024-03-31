@@ -3102,6 +3102,8 @@ coin_number = 8
 
 [node name="Goomba2" parent="." instance=ExtResource("12_jctye")]
 position = Vector2(145, 184)
+move_speed = 20
+direction = -1
 
 [node name="Koopa" parent="." instance=ExtResource("14_mwx2u")]
 position = Vector2(208, 181)

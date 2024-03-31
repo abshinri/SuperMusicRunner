@@ -6,7 +6,7 @@ class_name MoveableObject extends CharacterBody2D
 @export var direction := - 1
 @onready var gravity: int = ProjectSettings.get("physics/2d/default_gravity")
 
-var _debug_name = preload ("res://Component/Debug/ObjectName/ObjectName.tscn")
+# var _debug_name = preload ("res://Component/Debug/ObjectName/ObjectName.tscn")
 const dance_shader = preload ("res://Shader/Swing.gdshader")
 const flying_notes = preload ("res://Object/FlyingNotes/FlyingNotes.tscn")
 enum ObjectType {
@@ -34,6 +34,10 @@ func _handle_movement_collision(_collision) -> void:
 		_collider.hurt()
 	else:
 		move_speed = -move_speed
+
+func handle_area_collision(_collider) -> void:
+	if _collider is Player:
+		_collider.hurt()
 
 var is_on_wall_cool_down = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.

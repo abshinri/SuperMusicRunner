@@ -21,6 +21,7 @@ func physics_update(_delta) -> void:
 		transitioned.emit(self,'PlayerJump')
 	if Input.is_action_just_pressed("move_jump") and sprite_node.is_on_floor():
 		sprite_node.velocity.y = sprite_node.JUMP_VELOCITY
+		SignalBank.play_se.emit('Jump')
 		transitioned.emit(self, 'PlayerJump')
 	if Input.is_action_just_released("move_down"):
 		transitioned.emit(self, 'PlayerIdle')
